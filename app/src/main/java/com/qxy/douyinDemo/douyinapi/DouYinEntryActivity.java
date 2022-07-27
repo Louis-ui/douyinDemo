@@ -1,7 +1,9 @@
 package com.qxy.douyinDemo.douyinapi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -39,7 +41,10 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
             if (resp.isSuccess()) {
                 Toast.makeText(this, "授权成功，获得权限：" + response.grantedPermissions,
                         Toast.LENGTH_LONG).show();
-
+                SharedPreferences sharedPreferences = getSharedPreferences("douyin", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("authCode", response.authCode);
+                editor.apply();
             } else {
                 Toast.makeText(this, "授权失败" + response.grantedPermissions,
                         Toast.LENGTH_LONG).show();
