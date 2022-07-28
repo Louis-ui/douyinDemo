@@ -9,7 +9,7 @@ object AppSetting {
 
     const val CLIENT_KEY = "aw89ouosyw0lfup8"
 
-    const val CLIENT_SECRET = " d667d5f293258462f0a1c2b0029695c7"
+    const val CLIENT_SECRET = "d667d5f293258462f0a1c2b0029695c7"
 
 
     var ACCESS_TOKEN: String? = null

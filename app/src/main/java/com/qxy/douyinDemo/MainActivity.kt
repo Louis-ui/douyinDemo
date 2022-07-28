@@ -11,7 +11,6 @@ import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
 import com.bytedance.sdk.open.douyin.DouYinOpenConfig
 import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
 import com.qxy.douyinDemo.app.AppSetting
-import com.qxy.douyinDemo.bean.LoginBody
 import com.qxy.douyinDemo.network.API
 import com.qxy.douyinDemo.network.ApiResult
 import kotlinx.coroutines.launch
@@ -29,9 +28,6 @@ class MainActivity : AppCompatActivity() {
         DouYinOpenApiFactory.init(DouYinOpenConfig(AppSetting.CLIENT_KEY))
         douYinOpenApi = DouYinOpenApiFactory.create(this)
         sendAuth()
-
-
-
         button = findViewById(R.id.btn_getAccessToken)
         button?.setOnClickListener {
             lifecycleScope.launch {
@@ -40,30 +36,38 @@ class MainActivity : AppCompatActivity() {
                 Log.d("authCode", "onCreate: $authCode")
                 when (val result = authCode?.let {
                     API.BACKEND_SERVICE.getAccessToken(
-                        LoginBody(
-                            AppSetting.CLIENT_SECRET,
-                            it,
-                            "authorization_code",
-                            AppSetting.CLIENT_KEY
-                        )
+                        AppSetting.CLIENT_SECRET,
+                        it,
+                        "authorization_code",
+                        AppSetting.CLIENT_KEY
                     )
                 }) {
                     is ApiResult.Success -> {
-                        val accessToken = result.data.access_token
-                        val openId = result.data.open_id
+                        val accessToken = result.data?.access_token
+                        val openId = result.data?.open_id
                         Log.d("accessToken", "onCreate: $accessToken")
                         Log.d("openId", "onCreate: $openId")
                         AppSetting.ACCESS_TOKEN = accessToken
                         AppSetting.OPEN_ID = openId
                     }
                     is ApiResult.Error.ServerError -> {
-                        Log.d("auth", "onCreate: fail")
+                        Log.d("auth", "onCreate: fail ServerError")
                     }
                     is ApiResult.Error.Exception -> {
-                        Log.d("auth", "onCreate: fail")
+                        Log.d("auth", "onCreate: fail Exception")
                     }
                     else -> {}
                 }
+
+//                val result = API.BACKEND_SERVICE.getUserInfo(
+//                    mapOf(
+//                    "access_token" to "act.1ad9da634b69dda95eabe40508be4d23lWMfDq7JZYaoLoYMpZ3vVq4l5wjr",
+//                    "open_id" to "_000MTMjsr8Zy4_37r-hPOx363bNbJ3Uelpl")
+//                )
+//                when(result){
+//                    is ApiResult.Success -> {
+//                        Log.d("user", "onCreate: ${result.data.toString()}")}
+//                }
             }
         }
     }
