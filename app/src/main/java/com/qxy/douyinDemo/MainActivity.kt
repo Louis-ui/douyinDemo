@@ -1,6 +1,7 @@
 package com.qxy.douyinDemo
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -65,6 +66,12 @@ class MainActivity : AppCompatActivity() {
                     else -> {}
                 }
             }
+        }
+
+        val btn_goRank: Button = findViewById(R.id.btn_goMovieRankList)
+        btn_goRank.setOnClickListener {
+            val intent = Intent(this, MovieRankActivity::class.java)
+            startActivity(intent)
         }
     }
 

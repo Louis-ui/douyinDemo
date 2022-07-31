@@ -18,6 +18,9 @@
         android:theme="@style/Theme.DouyinDemo"
         tools:targetApi="31">
         <activity
+            android:name=".MovieRankActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -26,14 +29,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".douyinapi.DouYinEntryActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.qxy.douyinDemo" />
-
-
     </application>
 
 </manifest>
