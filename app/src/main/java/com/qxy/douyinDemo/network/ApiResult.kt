@@ -1,6 +1,7 @@
 package com.qxy.douyinDemo.network
 
 sealed class ApiResult<T> {
+
     data class Success<T>(val data: T?, val message: String) : ApiResult<T>()
 
     /**
