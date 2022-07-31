@@ -1,7 +1,8 @@
 package com.qxy.douyinDemo.network
 
 sealed class ApiResult<T> {
-    data class Success<T>(val errorCode: Int, val errorMsg: String, val data: T) : ApiResult<T>()
+
+    data class Success<T>(val data: T?, val message: String) : ApiResult<T>()
 
     /**
      * 网络请求失败

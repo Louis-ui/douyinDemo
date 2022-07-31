@@ -11,30 +11,15 @@ class MyApiResultCallAdapterFactory :
 
     override fun get(
         returnType: Type,
-        annotations: Array<out Annotation>,
+        annotations: Array<Annotation>,
         retrofit: Retrofit
     ): CallAdapter<*, *>? {
-        //判断是否为Call<ApiResult<Banner>>
         if (getRawType(returnType) != Call::class.java) return null
-        //参数化类型
-        if (returnType !is ParameterizedType) {
-            throw IllegalArgumentException(
-                "return type must be parameterized as Call<Foo> or Call<? extends Foo>"
-            )
-        }
-        //拿到ApiResult<Banner>
+        check(returnType is ParameterizedType) { "$returnType must be parameterized. Raw types are not supported" }
         val apiResultType = getParameterUpperBound(0, returnType)
-        //判断是否为ApiResult
         if (getRawType(apiResultType) != ApiResult::class.java) return null
-        //ApiResult是参数化类型
-        if (apiResultType !is ParameterizedType) {
-            throw IllegalArgumentException(
-                "return type must be parameterized"
-            )
-        }
-        //拿到ApiResult<Banner>中的Banner
+        check(apiResultType is ParameterizedType) { "$apiResultType must be parameterized. Raw types are not supported" }
         val dataType = getParameterUpperBound(0, apiResultType)
-        //Banner传给ApiResultCallAdapter
         return ApiResultCallAdapter(dataType)
     }
 }

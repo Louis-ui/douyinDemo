@@ -1,10 +1,8 @@
 package com.qxy.douyinDemo.network
 
-import com.google.gson.GsonBuilder
 import com.qxy.douyinDemo.app.AppSetting
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 object BaseAPI {
     private fun getRetrofit(
@@ -24,11 +22,7 @@ object BaseAPI {
     private val backendAPIRetrofit: Retrofit by lazy {
         getRetrofit(
             AppSetting.BACKEND_BASE_URL,
-            GsonConverterFactory.create(
-                GsonBuilder()
-                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-                    .create()
-            ),
+            CustomGsonConverterFactory.create(),
             MyApiResultCallAdapterFactory()
         )
     }
