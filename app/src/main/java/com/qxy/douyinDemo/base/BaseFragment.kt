@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.Base
+package com.qxy.douyinDemo.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseFragment <T :BaseModel,vm : BaseViewModel<T>,vdb : ViewDataBinding> : Fragment(), View.OnClickListener {
+abstract class BaseFragment<T : BaseModel, vm : BaseViewModel<T>, vdb : ViewDataBinding> :
+    Fragment(), View.OnClickListener {
     //获取当前activity布局文件
     protected abstract fun getContentViewId(): Int
 
@@ -31,12 +32,11 @@ abstract class BaseFragment <T :BaseModel,vm : BaseViewModel<T>,vdb : ViewDataBi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // 避免多次从xml中加载布局文件
         if (mContentView == null) {
             binding = DataBindingUtil.inflate(inflater, getContentViewId(), null, false)
-            mContentView = binding.getRoot()
-            binding.setLifecycleOwner(this)
+            mContentView = binding.root
+            binding.lifecycleOwner = this
             createViewModel()
             setListener()
             processLogic(savedInstanceState)
@@ -47,7 +47,7 @@ abstract class BaseFragment <T :BaseModel,vm : BaseViewModel<T>,vdb : ViewDataBi
         return mContentView
     }
 
-    public fun createViewModel() {
+    private fun createViewModel() {
         val vmClass: Class<vm> =
             (this.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<vm>
         mViewModel = ViewModelProvider(this).get(vmClass) as vm

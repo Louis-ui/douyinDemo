@@ -18,7 +18,7 @@ interface BackendService {
 
 
     @POST("oauth/userinfo/")
-    suspend fun getUserInfo(@Body map : Map<String , String>  = mutableMapOf()) : ApiResult<User>
+    suspend fun getUserInfo(@Body map: Map<String, String> = mutableMapOf()): ApiResult<User>
 
 }
 

@@ -1,9 +1,8 @@
-package com.qxy.douyinDemo.Base
+package com.qxy.douyinDemo.base
 
 import android.util.Log
-import com.qxy.douyinDemo.network.ApiResult
 
-abstract  class callback{
+abstract  class Callback{
     abstract fun success()
     fun error1()
     {

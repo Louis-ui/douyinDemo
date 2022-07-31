@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.Base
+package com.qxy.douyinDemo.base
 
 import android.content.Context
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
 
-abstract class BaseRvAdapter<D,V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.Adapter<V>() {
+abstract class BaseRvAdapter<D, V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.Adapter<V>() {
     protected var onItemClickListener: OnItemClickListener<D>? = null
     protected var dataList: ArrayList<D>? = null
     protected var mContext: Context? = null
@@ -33,6 +33,7 @@ abstract class BaseRvAdapter<D,V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.A
 
         handleData(holder as V, dataList!![position], position)
     }
+
     protected abstract fun handleData(holder: V, d: D, position: Int)
     override fun getItemCount(): Int {
         return if (dataList == null) 0 else dataList!!.size
@@ -46,7 +47,7 @@ abstract class BaseRvAdapter<D,V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.A
         fun onItemClick(data: D, pos: Int)
     }
 
-    open fun setOnItemClickListener1(onItemClickListener:BaseRvAdapter.OnItemClickListener<D>?) {
+    open fun setOnItemClickListener1(onItemClickListener: BaseRvAdapter.OnItemClickListener<D>?) {
         this.onItemClickListener = onItemClickListener
     }
 
