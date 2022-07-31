@@ -15,10 +15,6 @@ open class BaseViewModel<T : BaseModel?>(application: Application) :
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-    }
-
     init {
         createRepository()
     }
