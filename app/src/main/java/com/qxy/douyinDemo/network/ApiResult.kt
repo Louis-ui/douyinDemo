@@ -21,4 +21,18 @@ sealed class ApiResult<T> {
             val exception: Throwable
         ) : Error<T>()
     }
+
+    override fun toString(): String {
+        return when (this) {
+            is Success -> {
+                this.data.toString()
+            }
+            is Error.ServerError -> {
+                this.errorMsg
+            }
+            is Error.Exception -> {
+                this.exception.toString()
+            }
+        }
+    }
 }
