@@ -23,7 +23,7 @@ class CinemaMovieFragment : Fragment() {
 //        Log.d("CinemaMovieFragment", "onCreateView called!")
         val returnView = inflater.inflate(R.layout.fragment_cinema_movie, container, false)
         val layoutManager = LinearLayoutManager(context)
-        val adapter = MovieItemAdapter(cinemaMovieItemList)
+        val adapter = CinemaMovieItemAdapter(cinemaMovieItemList)
         val recyclerView = returnView.findViewById<RecyclerView>(R.id.cinema_list)
 
         initData()
@@ -36,24 +36,28 @@ class CinemaMovieFragment : Fragment() {
 
     private fun initData() {
         for (i in 0..20) {
-            cinemaMovieItemList.add(MovieItem("title$i", "subtitle1: $i",
-            "subtitle2: $i", "subtitle3: $i"))
+            cinemaMovieItemList.add(
+                MovieItem(
+                    "title$i", "subtitle1: $i",
+                    "subtitle2: $i", "subtitle3: $i"
+                )
+            )
         }
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d("CinemaMovieFragment", "onAttach called!")
+//        Log.d("CinemaMovieFragment", "onAttach called!")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("CinemaMovieFragment", "onCreate called!")
+//        Log.d("CinemaMovieFragment", "onCreate called!")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("CinemaMovieFragment", "onResume called!")
+//        Log.d("CinemaMovieFragment", "onResume called!")
     }
 
 
