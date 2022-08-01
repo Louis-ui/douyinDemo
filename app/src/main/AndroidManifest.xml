@@ -34,7 +34,7 @@
             android:taskAffinity="com.qxy.douyinDemo" />
 
         <activity
-            android:name=".MovieRankActivity"
+            android:name=".UI.MovieRank.MovieRankActivity"
             android:exported="false" />
 
     </application>

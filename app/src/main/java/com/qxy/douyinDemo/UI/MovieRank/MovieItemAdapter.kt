@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo
+package com.qxy.douyinDemo.UI.MovieRank
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.bean.MovieItem
 
 class MovieItemAdapter(val movieItemList: List<MovieItem> ): RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {

@@ -1,5 +1,6 @@
 package com.qxy.douyinDemo.UI.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,6 +16,7 @@ import com.qxy.douyinDemo.Base.BaseActivity
 import com.qxy.douyinDemo.Base.RepositoryImpl
 import com.qxy.douyinDemo.Base.callback
 import com.qxy.douyinDemo.R
+import com.qxy.douyinDemo.UI.MovieRank.MovieRankActivity
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
@@ -147,6 +149,11 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
                     })
                 }
             }
+        }
+
+        val btn_goMovieRank: Button = findViewById(R.id.btn_goMovieRankList)
+        btn_goMovieRank.setOnClickListener {
+            startActivity(Intent(this, MovieRankActivity::class.java))
         }
     }
 

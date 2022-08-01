@@ -1,6 +1,5 @@
-package com.qxy.douyinDemo
+package com.qxy.douyinDemo.UI.MovieRank
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.bean.MovieItem
 
 class CinemaMovieFragment : Fragment() {
@@ -20,7 +20,7 @@ class CinemaMovieFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("CinemaMovieFragment", "onCreateView called!")
+//        Log.d("CinemaMovieFragment", "onCreateView called!")
         val returnView = inflater.inflate(R.layout.fragment_cinema_movie, container, false)
         val layoutManager = LinearLayoutManager(context)
         val adapter = MovieItemAdapter(cinemaMovieItemList)
@@ -28,13 +28,14 @@ class CinemaMovieFragment : Fragment() {
 
         initData()
         recyclerView.layoutManager = layoutManager
+        recyclerView.addItemDecoration(MovieItemDecoration())
         recyclerView.adapter = adapter
 
         return returnView
     }
 
     private fun initData() {
-        for (i in 0..10) {
+        for (i in 0..20) {
             cinemaMovieItemList.add(MovieItem("title$i", "subtitle1: $i",
             "subtitle2: $i", "subtitle3: $i"))
         }

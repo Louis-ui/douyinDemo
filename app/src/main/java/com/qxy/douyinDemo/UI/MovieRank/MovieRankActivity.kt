@@ -1,22 +1,21 @@
-package com.qxy.douyinDemo
+package com.qxy.douyinDemo.UI.MovieRank
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.qxy.douyinDemo.R
 
 class MovieRankActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_rank)
 
-        Log.d("MovieRankActivity", "onCreate called!")
+//        Log.d("MovieRankActivity", "onCreate called!")
 
         val viewPager: ViewPager = findViewById(R.id.ranklist_viewpager)
         val tabLayout: TabLayout = findViewById(R.id.tab_layout)
@@ -35,12 +34,12 @@ class MovieRankActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d("MovieRankActivity", "onStart called!")
+//        Log.d("MovieRankActivity", "onStart called!")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("MovieRankActivity", "onResume called!")
+//        Log.d("MovieRankActivity", "onResume called!")
     }
 
     class RankListPagerAdapter(

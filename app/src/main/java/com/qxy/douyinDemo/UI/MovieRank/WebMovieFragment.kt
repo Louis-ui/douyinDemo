@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo
+package com.qxy.douyinDemo.UI.MovieRank
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.qxy.douyinDemo.R
 
 class WebMovieFragment : Fragment() {
     override fun onCreateView(
