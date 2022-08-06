@@ -3,9 +3,7 @@ package com.qxy.douyinDemo.ui.movieRank
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.qxy.douyinDemo.R
@@ -33,6 +31,10 @@ class MovieItemAdapter(val movieItemList: List<MovieItem>, val movieType: Int)
         holder.movieSubtitle1.text = movieItem.movieSubtitle1
         holder.movieSubtitle2.text = movieItem.movieSubtitle2
         holder.movieSubtitle3.text = movieItem.movieSubtitle3
+        // set button onClick
+        holder.movieRight.findViewById<Button>(R.id.buy_ticket).setOnClickListener {
+            Toast.makeText(it.context, "called!", Toast.LENGTH_SHORT).show()
+        }
 
         when (movieType) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {

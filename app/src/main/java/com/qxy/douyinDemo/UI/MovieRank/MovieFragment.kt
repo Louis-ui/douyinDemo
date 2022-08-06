@@ -1,42 +1,44 @@
 package com.qxy.douyinDemo.UI.movieRank
 
-import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.UI.MovieRank.MovieItemDecoration
+import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.MovieItem
+import com.qxy.douyinDemo.databinding.FragmentMovieBinding
+import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
+import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
 import com.qxy.douyinDemo.ui.movieRank.MovieItemAdapter
 
-class MovieFragment(val movieTypeCreate: Int): Fragment() {
+class MovieFragment(val movieTypeCreate: Int): BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {
     private val movieItemList = ArrayList<MovieItem>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val returnView = inflater.inflate(R.layout.fragment_movie, container, false)
+    override fun getContentViewId(): Int = R.layout.fragment_movie
+
+    override fun processLogic(savedInstanceState: Bundle?) {
+        Log.d("MovieFragment", "processLogic called!")
+    }
+
+    override fun setListener() {
         val layoutManager = LinearLayoutManager(context)
         val adapter = MovieItemAdapter(movieItemList, movieTypeCreate)
-        val recyclerView = returnView.findViewById<RecyclerView>(R.id.movies_list)
-
         initData()
-        recyclerView.apply {
+        binding.moviesList.apply {
             this.layoutManager = layoutManager
             this.addItemDecoration(MovieItemDecoration())
             this.adapter = adapter
         }
-        return returnView
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+        }
     }
 
     fun initData() {
-        //TODO: not implement yet
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
                 for (i in 0..20) {
@@ -64,18 +66,4 @@ class MovieFragment(val movieTypeCreate: Int): Fragment() {
         }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-//        Log.d("WebMovieFragment", "onAttach called!")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        Log.d("WebMovieFragment", "onCreate called!")
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        Log.d("WebMovieFragment", "onResume called!")
-    }
 }
