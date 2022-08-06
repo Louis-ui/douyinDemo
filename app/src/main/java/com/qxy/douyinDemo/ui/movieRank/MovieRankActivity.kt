@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.UI.MovieRank
+package com.qxy.douyinDemo.ui.movieRank
 
 import android.util.Log
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.UI.movieRank.MovieFragment
 import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.bean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding

@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.activity.MainActivity">
+        tools:context=".ui.activity.MainActivity">
 
         <Button
             android:id="@+id/btn_getAccessToken"

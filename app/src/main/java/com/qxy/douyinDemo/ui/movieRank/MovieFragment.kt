@@ -1,19 +1,18 @@
-package com.qxy.douyinDemo.UI.movieRank
+package com.qxy.douyinDemo.ui.movieRank
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.UI.MovieRank.MovieItemDecoration
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
-import com.qxy.douyinDemo.ui.movieRank.MovieItemAdapter
 
-class MovieFragment(val movieTypeCreate: Int): BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {
+class MovieFragment(private val movieTypeCreate: Int) :
+    BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {
     private val movieItemList = ArrayList<MovieItem>()
 
     override fun getContentViewId(): Int = R.layout.fragment_movie
@@ -28,7 +27,13 @@ class MovieFragment(val movieTypeCreate: Int): BaseFragment<RepositoryImpl, Movi
         initData()
         binding.moviesList.apply {
             this.layoutManager = layoutManager
-            this.addItemDecoration(MovieItemDecoration())
+            this.addItemDecoration(
+                MovieItemDecoration(
+                    requireActivity(),
+                    LinearLayoutManager.VERTICAL,
+                    R.layout.item_top_decor_movie
+                )
+            )
             this.adapter = adapter
         }
     }

@@ -29,7 +29,7 @@
             android:taskAffinity="com.qxy.douyinDemo" />
 
         <activity
-            android:name=".UI.MovieRank.MovieRankActivity"
+            android:name=".ui.movieRank.MovieRankActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

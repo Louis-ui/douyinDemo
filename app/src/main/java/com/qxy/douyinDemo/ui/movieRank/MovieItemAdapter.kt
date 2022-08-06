@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.bean.MovieItem
 
-class MovieItemAdapter(val movieItemList: List<MovieItem>, val movieType: Int)
-        : RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
+class MovieItemAdapter(private val movieItemList: List<MovieItem>, private val movieType: Int) :
+    RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val moviePost: ImageView = itemView.findViewById(R.id.movie_post)
         val movieRight: LinearLayout = itemView.findViewById(R.id.movie_right)
@@ -21,7 +21,8 @@ class MovieItemAdapter(val movieItemList: List<MovieItem>, val movieType: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_movie, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.list_item_movie, parent, false)
         return ViewHolder(view)
     }
 
