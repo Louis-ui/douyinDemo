@@ -17,8 +17,14 @@ interface BackendService {
     ): ApiResult<LoginInfo>
 
 
-    @POST("oauth/userinfo/")
-    suspend fun getUserInfo(@Body map: Map<String, String> = mutableMapOf()): ApiResult<User>
-
+    /**
+     * 获取用户公开信息
+     */
+    @FormUrlEncoded
+    @POST( "/oauth/userinfo/")
+    suspend fun getUserMessage(
+        @Field("access_token") access_token : String,
+        @Field("open_id") open_id :String
+    ):ApiResult<User>
 }
 

@@ -33,6 +33,7 @@ android {
     buildFeatures {
         dataBinding true
     }
+    buildToolsVersion '31.0.0'
 }
 
 dependencies {
@@ -59,4 +60,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    // 下拉刷新，上拉加载
+    //svg
+    //沉浸式状态栏
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    implementation 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
+
 }

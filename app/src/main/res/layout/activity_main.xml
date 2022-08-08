@@ -7,7 +7,7 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".UI.activity.MainActivity">
@@ -16,11 +16,32 @@
             android:id="@+id/btn_getAccessToken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Hello World!" />
+        <fragment
+            android:id="@+id/main_fragment"
+            android:name="com.qxy.douyinDemo.UI.Fragment.MyFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/main_layout"/>
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@drawable/main_img_select"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:foregroundGravity="center"/>
+            <ImageView
+                android:padding="4dp"
+                android:src="@drawable/main_img2_select"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:foregroundGravity="center"/>
+        </LinearLayout>
+    </RelativeLayout>
 </layout>

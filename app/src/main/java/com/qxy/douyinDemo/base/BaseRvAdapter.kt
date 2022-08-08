@@ -39,7 +39,7 @@ abstract class BaseRvAdapter<D, V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.
         return if (dataList == null) 0 else dataList!!.size
     }
 
-    class ViewHolder<B : ViewDataBinding>(var viewDataBinding: B) : RecyclerView.ViewHolder(
+      open class ViewHolder<B : ViewDataBinding>(var viewDataBinding: B) : RecyclerView.ViewHolder(
         viewDataBinding!!.root
     )
 

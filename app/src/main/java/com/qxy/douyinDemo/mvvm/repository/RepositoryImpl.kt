@@ -3,6 +3,7 @@ package com.qxy.douyinDemo.mvvm.repository
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseModel
 import com.qxy.douyinDemo.bean.LoginInfo
+import com.qxy.douyinDemo.bean.User
 import com.qxy.douyinDemo.network.API
 import com.qxy.douyinDemo.network.ApiResult
 
@@ -21,5 +22,12 @@ class RepositoryImpl : BaseModel() {
                 AppSetting.CLIENT_KEY
             )
         }
+    /**
+     * getUserMessage
+     */
+    suspend fun getMessage(access_token : String,open_id : String) : ApiResult<User> =
+    request{
+        API.BACKEND_SERVICE.getUserMessage(access_token,open_id)
+    }
 
 }
