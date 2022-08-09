@@ -1,6 +1,10 @@
 package com.qxy.douyinDemo.app
 
+import android.annotation.SuppressLint
+import android.content.Context
 
+
+@SuppressLint("StaticFieldLeak")
 object AppSetting {
 
     const val BACKEND_BASE_URL = "https://open.douyin.com/"
@@ -15,4 +19,6 @@ object AppSetting {
     var ACCESS_TOKEN: String? = null
 
     var OPEN_ID: String? = null
+
+    var context: Context? = null
 }
