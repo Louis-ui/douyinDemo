@@ -27,7 +27,7 @@ abstract class MovieDataBase : RoomDatabase() {
         }
 
         private fun create(context: Context): MovieDataBase {
-            return Room.databaseBuilder(context = context, MovieDataBase::class.java, DB_NAME)
+            return Room.databaseBuilder(context, MovieDataBase::class.java, DB_NAME)
                 .build()
         }
     }

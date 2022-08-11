@@ -61,23 +61,18 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
-    def room_version = "2.4.2"
-
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-
+    implementation 'androidx.room:room-runtime:2.2.2'
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+    kapt 'androidx.room:room-compiler:2.2.2'
     // optional - RxJava2 support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
-
+    implementation 'androidx.room:room-rxjava2:2.2.2'
     // optional - RxJava3 support for Room
-    implementation "androidx.room:room-rxjava3:$room_version"
-
+    implementation 'androidx.room:room-rxjava3:2.4.2'
     // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation "androidx.room:room-guava:$room_version"
-
+    implementation 'androidx.room:room-guava:2.2.2'
     // optional - Test helpers
-    testImplementation "androidx.room:room-testing:$room_version"
-
+    testImplementation 'androidx.room:room-testing:2.2.2'
     // optional - Paging 3 Integration
-    implementation "androidx.room:room-paging:2.5.0-alpha02"
+    implementation 'androidx.room:room-paging:2.4.2'
 }

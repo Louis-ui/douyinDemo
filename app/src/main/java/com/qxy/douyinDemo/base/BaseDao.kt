@@ -100,22 +100,22 @@ abstract class BaseDao<T> {
         }
 
     @RawQuery
-    protected abstract fun doFindAll(query: SupportSQLiteQuery?): List<T>?
+    protected abstract fun doFindAll(query: SupportSQLiteQuery): List<T>?
 
     @RawQuery
-    protected abstract fun doFind(query: SupportSQLiteQuery?): T
+    protected abstract fun doFind(query: SupportSQLiteQuery): T
 
     @RawQuery
-    protected abstract fun doDeleteAll(query: SupportSQLiteQuery?): Int
+    protected abstract fun doDeleteAll(query: SupportSQLiteQuery): Int
 
     @RawQuery
-    protected abstract fun doDeleteByParams(query: SupportSQLiteQuery?): Int
+    protected abstract fun doDeleteByParams(query: SupportSQLiteQuery): Int
 
     @RawQuery
-    protected abstract fun doQueryByLimit(query: SupportSQLiteQuery?): List<T>?
+    protected abstract fun doQueryByLimit(query: SupportSQLiteQuery): List<T>?
 
     @RawQuery
-    protected abstract fun doQueryByOrder(query: SupportSQLiteQuery?): List<T>?
+    protected abstract fun doQueryByOrder(query: SupportSQLiteQuery): List<T>?
 
 
 }
