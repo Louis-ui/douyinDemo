@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">douyinDemo</string>
+    <string name="cinema_movie">院线电影</string>
+    <string name="web_movie">网络电影</string>
+    <string name="movie_title">电影标题</string>
+    <string name="movie_subtitle1">演员1 / 演员2 / 演员3</string>
+    <string name="movie_subtitle2">共 xx 期</string>
+    <string name="movie_subtitle3">2022-01-01 播出</string>
 </resources>

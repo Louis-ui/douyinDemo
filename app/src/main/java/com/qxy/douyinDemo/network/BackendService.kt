@@ -1,7 +1,9 @@
 package com.qxy.douyinDemo.network
 
+import com.qxy.douyinDemo.bean.ClientOauthInfo
 import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.RefreshTokenInfo
+import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.bean.User
 import com.qxy.douyinDemo.bean.VideoBean.Vbean
 import retrofit2.http.*
@@ -48,6 +50,21 @@ interface BackendService {
         @Query("cursor") cursor: String,
         @Query("count") count: String
     ): ApiResult<Vbean>
+
+    @POST("oauth/client_token/")
+    @FormUrlEncoded
+    suspend fun getClientToken(
+        @Field("client_key") client_key: String,
+        @Field("client_secret") client_secret: String,
+        @Field("grant_type") grant_type: String
+    ): ApiResult<ClientOauthInfo>
+
+    @GET("discovery/ent/rank/item/")
+    suspend fun getRankInfo(
+        @Header("access-token") client_token: String,
+        @Query("type") type: Int,
+        @Query("version") version: Int?
+    ): ApiResult<RankInfos>
 
 }
 
