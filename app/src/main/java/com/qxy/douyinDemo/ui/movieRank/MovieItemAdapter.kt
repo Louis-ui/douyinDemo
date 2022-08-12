@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.bean.MovieItem
+import kotlinx.coroutines.withContext
 
 class MovieItemAdapter(private val movieItemList: List<MovieItem>, private val movieType: Int) :
     RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {

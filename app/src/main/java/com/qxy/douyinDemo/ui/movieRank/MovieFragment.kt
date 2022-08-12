@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.MovieItem
