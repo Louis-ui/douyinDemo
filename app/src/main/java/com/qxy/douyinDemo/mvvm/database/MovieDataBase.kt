@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.qxy.douyinDemo.bean.Movie
+import com.qxy.douyinDemo.bean.MovieRankBean.Movie
 import com.qxy.douyinDemo.mvvm.dao.MovieDao
 
 @Database(entities = [Movie::class], version = 1, exportSchema = false)

@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
-import com.qxy.douyinDemo.bean.MovieItem
+import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel

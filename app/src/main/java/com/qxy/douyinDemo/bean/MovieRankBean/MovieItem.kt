@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.bean
+package com.qxy.douyinDemo.bean.MovieRankBean
 
 import android.graphics.Bitmap
 import android.net.Uri

@@ -9,7 +9,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseViewModel
-import com.qxy.douyinDemo.bean.MovieItem
+import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
 import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.network.ApiResult
@@ -22,14 +22,16 @@ class MovieRankViewModel(application: Application): BaseViewModel<RepositoryImpl
         for(i in 0 until movies.list.size) {
             val tempMovieItem = movies.list[i]
 
-            tempList.add(MovieItem(
+            tempList.add(
+                MovieItem(
                 Uri.parse(tempMovieItem.poster),
                 tempMovieItem.name.toString(),
                 tempMovieItem.name_en.toString(),
                 tempMovieItem.hot.toString(),
-                tempMovieItem.release_data.toString(),
+                tempMovieItem.release_date.toString(),
                 MovieItem.type.CINEMA_MOVIE_TYPE
-            ))
+            )
+            )
         }
         tempList
     }
