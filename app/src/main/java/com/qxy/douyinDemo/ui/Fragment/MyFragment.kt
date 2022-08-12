@@ -1,5 +1,6 @@
 package com.qxy.douyinDemo.UI.Fragment
 
+import android.content.Intent
 import android.database.AbstractCursor
 import android.os.Bundle
 import android.view.View
@@ -20,6 +21,7 @@ import com.qxy.douyinDemo.bean.VideoBean.Vbean
 import com.qxy.douyinDemo.databinding.FragmentMyBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MyFragmentViewModel
+import com.qxy.douyinDemo.ui.movieRank.MovieRankActivity
 import kotlin.random.Random
 
 class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBinding>() {
@@ -41,7 +43,12 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
     }
 
     override fun onClick(p0: View?) {
-
+        when (p0) {
+            binding.button1 -> {}
+            binding.button2 -> {
+                startActivity(Intent(context, MovieRankActivity::class.java))
+            }
+        }
     }
     //通过随机数来设置点赞数
     fun setLike(){

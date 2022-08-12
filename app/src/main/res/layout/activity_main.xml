@@ -12,17 +12,14 @@
         android:layout_height="match_parent"
         tools:context=".UI.activity.MainActivity">
 
-        <Button
-            android:id="@+id/btn_getAccessToken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
         <fragment
             android:id="@+id/main_fragment"
             android:name="com.qxy.douyinDemo.UI.Fragment.MyFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/main_layout"/>
+            android:layout_above="@+id/main_layout"
+            android:layout_marginBottom="-3dp" />
+
         <LinearLayout
             android:id="@+id/main_layout"
             android:layout_width="match_parent"
@@ -35,6 +32,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:foregroundGravity="center"/>
+
+            <Button
+                android:id="@+id/btn_getAccessToken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!" />
+
             <ImageView
                 android:padding="4dp"
                 android:src="@drawable/main_img2_select"

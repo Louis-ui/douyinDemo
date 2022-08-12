@@ -59,6 +59,7 @@ interface BackendService {
         @Field("grant_type") grant_type: String
     ): ApiResult<ClientOauthInfo>
 
+    // useless commit
     @GET("discovery/ent/rank/item/")
     suspend fun getRankInfo(
         @Header("access-token") client_token: String,

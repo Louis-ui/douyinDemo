@@ -73,6 +73,7 @@ class ApiResultCall(
                                                     "onResponse: success refresh"
                                                 )
                                             }
+                                            else -> {}
                                         }
                                     }
                                 }

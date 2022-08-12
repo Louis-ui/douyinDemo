@@ -57,14 +57,13 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
             Log.d("openId", "onCreate: $it.openId")
         })
         mViewModel.clientOauthResult.observe(this) {
-//            Log.d("client_token", "${it.access_token}")
-            findViewById<TextView>(R.id.client_token).text = it.access_token
+            Log.d("client_token", "${it.access_token}")
         }
     }
 
     override fun setListener() {
         binding.btnGetAccessToken.setOnClickListener(this)
-        binding.btnGoMovieRankList.setOnClickListener(this)
+//        binding.btnGoMovieRankList.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -80,9 +79,6 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
                     mViewModel.toLogin(it)
                     mViewModel.getClientToken()
                 }
-            }
-            R.id.btn_goMovieRankList -> {
-                startActivity(Intent(this, MovieRankActivity::class.java))
             }
         }
     }

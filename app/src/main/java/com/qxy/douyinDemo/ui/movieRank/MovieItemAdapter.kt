@@ -1,5 +1,6 @@
 package com.qxy.douyinDemo.ui.movieRank
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +9,14 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
+import com.qxy.douyinDemo.base.BaseRvAdapter
 import com.qxy.douyinDemo.bean.MovieItem
 import kotlinx.coroutines.withContext
 
 class MovieItemAdapter(private val movieItemList: List<MovieItem>, private val movieType: Int) :
     RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val mContext: Context = itemView.context
         val moviePost: ImageView = itemView.findViewById(R.id.movie_post)
         val movieRight: LinearLayout = itemView.findViewById(R.id.movie_right)
         val movieName: TextView = itemView.findViewById(R.id.movie_title)
@@ -38,10 +41,13 @@ class MovieItemAdapter(private val movieItemList: List<MovieItem>, private val m
         holder.movieRight.findViewById<Button>(R.id.buy_ticket).setOnClickListener {
             Toast.makeText(it.context, "called!", Toast.LENGTH_SHORT).show()
         }
+        holder.mContext.apply {
+            Glide.with(this).load(movieItem.moviePost).into(holder.moviePost)
+        }
 
         when (movieType) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
-                // todo: do nothing
+                // do nothing
             }
 
             MovieItem.type.WEB_MOVIE_TYPE -> {
