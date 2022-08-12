@@ -1,8 +1,11 @@
 package com.qxy.douyinDemo.ui.activity
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.bytedance.sdk.open.aweme.authorize.model.Authorization
 import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
@@ -14,6 +17,7 @@ import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
+import com.qxy.douyinDemo.ui.movieRank.MovieRankActivity
 
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 
@@ -48,10 +52,15 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
             Log.d("accessToken", "onCreate: $it.accessToken")
             Log.d("openId", "onCreate: $it.openId")
         })
+        mViewModel.clientOauthResult.observe(this) {
+//            Log.d("client_token", "${it.access_token}")
+            findViewById<TextView>(R.id.client_token).text = it.access_token
+        }
     }
 
     override fun setListener() {
         binding.btnGetAccessToken.setOnClickListener(this)
+        binding.btnGoMovieRankList.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -65,7 +74,11 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
                 Log.d("authCode", "onCreate: $authCode")
                 authCode?.let {
                     mViewModel.toLogin(it)
+                    mViewModel.getClientToken()
                 }
+            }
+            R.id.btn_goMovieRankList -> {
+                startActivity(Intent(this, MovieRankActivity::class.java))
             }
         }
     }

@@ -55,7 +55,7 @@ object OkHttpHelper {
     private val responseBodyInterceptor: Interceptor by lazy {
         Interceptor { chain ->
             val response = chain.proceed(chain.request())
-//            Log.d("network", "$response data={${response.body()?.string()}}")
+            Log.d("network", "$response data={${response.body()?.string()}}")
             response
         }
     }

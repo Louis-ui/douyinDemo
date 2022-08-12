@@ -2,7 +2,9 @@ package com.qxy.douyinDemo.mvvm.repository
 
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseModel
+import com.qxy.douyinDemo.bean.ClientOauthInfo
 import com.qxy.douyinDemo.bean.LoginInfo
+import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.network.API
 import com.qxy.douyinDemo.network.ApiResult
 
@@ -22,4 +24,21 @@ class RepositoryImpl : BaseModel() {
             )
         }
 
+    suspend fun getClientToken(): ApiResult<ClientOauthInfo> =
+        request {
+            API.BACKEND_SERVICE.getClientToken(
+                AppSetting.CLIENT_KEY,
+                AppSetting.CLIENT_SECRET,
+                "client_credential"
+            )
+        }
+
+    suspend fun getRankInfo(type: Int, version: Int?, client_token: String): ApiResult<RankInfos> =
+        request {
+            API.BACKEND_SERVICE.getRankInfo(
+                client_token,
+                type,
+                version
+            )
+        }
 }

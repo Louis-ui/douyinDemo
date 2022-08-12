@@ -21,4 +21,6 @@ object AppSetting {
     var OPEN_ID: String? = null
 
     var context: Context? = null
+
+    var CLIENT_TOKEN: String? = null
 }

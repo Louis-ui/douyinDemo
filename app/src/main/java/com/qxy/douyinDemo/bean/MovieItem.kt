@@ -1,9 +1,10 @@
 package com.qxy.douyinDemo.bean
 
 import android.graphics.Bitmap
+import android.net.Uri
 
 class MovieItem(
-    // val moviePost: Bitmap,
+    var moviePost: Uri?,
     val movieTitle: String,
     val movieSubtitle1: String,
     val movieSubtitle2: String,

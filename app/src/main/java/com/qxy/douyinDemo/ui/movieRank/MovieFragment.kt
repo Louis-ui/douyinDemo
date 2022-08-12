@@ -46,14 +46,20 @@ class MovieFragment(private val movieTypeCreate: Int) :
     fun initData() {
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
-                for (i in 0..20) {
-                    movieItemList.add(
-                        MovieItem(
-                            "cinema title$i", "subtitle1: $i",
-                            "subtitle2: $i", "subtitle3: $i",
-                            MovieItem.type.CINEMA_MOVIE_TYPE
-                        )
-                    )
+//                for (i in 0..20) {
+//                    movieItemList.add(
+//                        MovieItem(
+//                            "cinema title$i", "subtitle1: $i",
+//                            "subtitle2: $i", "subtitle3: $i",
+//                            MovieItem.type.CINEMA_MOVIE_TYPE
+//                        )
+//                    )
+//                }
+                mViewModel?.getMovieRank()
+                mViewModel?.realMovieRank?.observe(this) {
+                    for (i in 0 until it.size) {
+                        movieItemList.add(it[i])
+                    }
                 }
             }
 
@@ -61,7 +67,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
                 for (i in 0..20) {
                     movieItemList.add(
                         MovieItem(
-                            "web title$i", "subtitle1: $i",
+                            null, "title: $i","subtitle1: $i",
                             "subtitle2: $i", "subtitle3: $i",
                             MovieItem.type.WEB_MOVIE_TYPE
                         )
