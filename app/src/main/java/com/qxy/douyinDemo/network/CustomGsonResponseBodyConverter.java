@@ -21,6 +21,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.qxy.douyinDemo.bean.Extra;
 
 import java.io.IOException;
 
@@ -41,6 +42,13 @@ final class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody
         JsonReader jsonReader = gson.newJsonReader(value.charStream());
         jsonReader.beginObject();
         String message = "message";
+        Extra extra = new Extra(
+                "description",
+                "error_code",
+                "logid",
+                "now",
+                "sub_description",
+                "sub_error_code");
         T data = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
@@ -48,9 +56,14 @@ final class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody
                 data = adapter.read(jsonReader);
             } else if (TextUtils.equals(nextName, "message")) {
                 message = jsonReader.nextString();
+            } else if (TextUtils.equals(nextName, "extra")) {
+                jsonReader.beginArray();
+                while (jsonReader.hasNext()) {
+                    extra.setError_code(jsonReader.nextString());
+                }
             }
         }
         jsonReader.endObject();
-        return ((T) new ApiResult.Success(data, message));
+        return ((T) new ApiResult.Success(data, message, extra));
     }
 }

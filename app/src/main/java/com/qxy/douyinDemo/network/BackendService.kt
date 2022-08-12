@@ -1,6 +1,7 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.LoginInfo
+import com.qxy.douyinDemo.bean.RefreshTokenInfo
 import com.qxy.douyinDemo.bean.User
 import retrofit2.http.*
 
@@ -19,6 +20,15 @@ interface BackendService {
 
     @POST("oauth/userinfo/")
     suspend fun getUserInfo(@Body map: Map<String, String> = mutableMapOf()): ApiResult<User>
+
+
+    @FormUrlEncoded
+    @POST("oauth/refresh_token/")
+    suspend fun refreshToken(
+        @Field("client_key") client_key: String,
+        @Field("grant_type") grant_type: String,
+        @Field("refresh_token") refresh_token: String
+    ): ApiResult<RefreshTokenInfo>
 
 }
 
