@@ -57,9 +57,13 @@ final class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody
             } else if (TextUtils.equals(nextName, "message")) {
                 message = jsonReader.nextString();
             } else if (TextUtils.equals(nextName, "extra")) {
-                jsonReader.beginArray();
+                jsonReader.beginObject();
                 while (jsonReader.hasNext()) {
-                    extra.setError_code(jsonReader.nextString());
+                    String nextSmallName = jsonReader.nextName();
+                    String nextSmallString = jsonReader.nextString();
+                    if (TextUtils.equals(nextSmallName, "error_code")){
+                        extra.setError_code(nextSmallString);
+                    }
                 }
             }
         }

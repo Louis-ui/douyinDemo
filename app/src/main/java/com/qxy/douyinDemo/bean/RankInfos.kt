@@ -3,8 +3,15 @@ package com.qxy.douyinDemo.bean
 import java.io.Serializable
 
 class RankInfos(
-    var items: List<RankInfo>
-) : Serializable { }
+    val active_time : String,
+    val description : String,
+    val error_code : String,
+    var list: List<RankInfo>
+) : Serializable {
+    override fun toString(): String {
+        return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=$list)"
+    }
+}
 
 class RankInfo(
     var actors: List<String> ,

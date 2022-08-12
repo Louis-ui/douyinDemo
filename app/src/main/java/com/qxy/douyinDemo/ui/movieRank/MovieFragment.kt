@@ -19,6 +19,9 @@ class MovieFragment(private val movieTypeCreate: Int) :
     override fun getContentViewId(): Int = R.layout.fragment_movie
 
     override fun processLogic(savedInstanceState: Bundle?) {
+        mViewModel?.movieRank?.observe(this) {
+            Log.d("movie rank data", "processLogic: ${it.toString()}")
+        }
         Log.d("MovieFragment", "processLogic called!")
     }
 
