@@ -8,11 +8,12 @@ import com.bytedance.sdk.open.aweme.authorize.model.Authorization
 import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
 import com.bytedance.sdk.open.douyin.DouYinOpenConfig
 import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
-import com.qxy.douyinDemo.base.BaseActivity
-import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
+import com.gyf.immersionbar.ImmersionBar
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.app.AppSetting
+import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
+import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
 
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
@@ -41,6 +42,9 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
     }
 
     override fun processLogic() {
+        ImmersionBar.with(this)
+            .statusBarDarkFont(true)
+            .init()
         DouYinOpenApiFactory.init(DouYinOpenConfig(AppSetting.CLIENT_KEY))
         douYinOpenApi = DouYinOpenApiFactory.create(this)
         sendAuth()

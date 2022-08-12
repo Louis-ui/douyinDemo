@@ -3,6 +3,7 @@ package com.qxy.douyinDemo.network
 import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.RefreshTokenInfo
 import com.qxy.douyinDemo.bean.User
+import com.qxy.douyinDemo.bean.VideoBean.Vbean
 import retrofit2.http.*
 
 interface BackendService {
@@ -18,8 +19,15 @@ interface BackendService {
     ): ApiResult<LoginInfo>
 
 
-    @POST("oauth/userinfo/")
-    suspend fun getUserInfo(@Body map: Map<String, String> = mutableMapOf()): ApiResult<User>
+    /**
+     * 获取用户公开信息
+     */
+    @FormUrlEncoded
+    @POST("/oauth/userinfo/")
+    suspend fun getUserMessage(
+        @Field("access_token") access_token: String,
+        @Field("open_id") open_id: String
+    ): ApiResult<User>
 
 
     @FormUrlEncoded
@@ -29,6 +37,17 @@ interface BackendService {
         @Field("grant_type") grant_type: String,
         @Field("refresh_token") refresh_token: String
     ): ApiResult<RefreshTokenInfo>
+
+
+    /**
+     *video/list/ 获取视频
+     */
+    @GET("/video/list/")
+    suspend fun getVadio(
+        @Query("open_id") open_id: String,
+        @Query("cursor") cursor: String,
+        @Query("count") count: String
+    ): ApiResult<Vbean>
 
 }
 

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/my_AppBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    app:contentScrim="#CDDC39"
+                    android:layout_width="match_parent"
+                    app:layout_scrollFlags="exitUntilCollapsed|scroll"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="@drawable/ic_my_back"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                   <RelativeLayout
+                       android:layout_marginTop="80dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <androidx.cardview.widget.CardView
+                           android:id="@+id/my_card1"
+                           android:layout_marginLeft="20dp"
+                           android:layout_marginBottom="20dp"
+                           android:layout_width="70dp"
+                           android:layout_height="70dp"
+                           app:cardCornerRadius="90dp">
+                           <ImageView
+                               android:id="@+id/My_imag"
+                               android:layout_width="70dp"
+                               android:layout_height="70dp"
+                               android:background="#D51010" />
+                       </androidx.cardview.widget.CardView>
+
+                       <LinearLayout
+                           android:layout_marginLeft="20dp"
+                           android:layout_toRightOf="@+id/my_card1"
+                           android:layout_width="wrap_content"
+                           android:layout_height="70dp"
+                           android:orientation="vertical">
+                           <TextView
+                               android:id="@+id/my_text1"
+                               android:gravity="center"
+                               android:layout_width="wrap_content"
+                               android:layout_height="40dp"
+                               tools:text="太阳"
+                               android:textSize="20dp"
+                               />
+                           <TextView
+                               android:id="@+id/my_text2"
+                               android:text="抖音号:706948033"
+                               android:gravity="center"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"/>
+                       </LinearLayout>
+                   </RelativeLayout>
+                        <RelativeLayout
+                            android:background="@drawable/my_background"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/R2_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/my_text3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="40dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="获赞" />
+
+                                <TextView
+                                    android:id="@+id/my_text4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="关注" />
+
+                                <TextView
+                                    android:id="@+id/my_text5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="粉丝" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/R2_layout_text1"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/R2_layout" >
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+                                <TextView
+                                    android:textSize="12dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="点击添加介绍，让大家认识你...**"
+                                    android:gravity="center|left"
+                                    android:layout_marginLeft="20dp"/>
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/R2_layout2"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_below="@+id/R2_layout_text1"
+                                android:orientation="horizontal">
+
+                            </LinearLayout>
+
+                            <HorizontalScrollView
+                                android:id="@+id/R2_layout_Scroll"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/R2_layout2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginLeft="20dp"
+                                            app:cardCornerRadius="10dp"
+                                            app:cardElevation="10dp">
+
+                                            <ImageView
+                                                android:padding="8dp"
+                                                android:src="@mipmap/my_img1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="#1B1A1A" />
+                                        </androidx.cardview.widget.CardView>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:gravity="center"
+                                                android:text="抖音商城"
+                                                android:textColor="#151515"
+                                                android:textSize="13dp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="美好生活触手可得"
+                                                android:textSize="10dp" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginLeft="20dp"
+                                            app:cardCornerRadius="10dp"
+                                            app:cardElevation="10dp">
+
+                                            <ImageView
+                                                android:padding="6dp"
+                                                android:src="@mipmap/my_img2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="#1B1A1A"/>
+                                        </androidx.cardview.widget.CardView>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:gravity="center"
+                                                android:text="抖音商城"
+                                                android:textColor="#151515"
+                                                android:textSize="13dp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="美好生活触手可得"
+                                                android:textSize="10dp" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginLeft="20dp"
+                                            app:cardCornerRadius="10dp"
+                                            app:cardElevation="10dp">
+
+                                            <ImageView
+                                                android:src="@mipmap/my_img3"
+                                                android:padding="4dp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="#1B1A1A" />
+                                        </androidx.cardview.widget.CardView>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:gravity="center"
+                                                android:text="抖音商城"
+                                                android:textColor="#151515"
+                                                android:textSize="13dp" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="美好生活触手可得"
+                                                android:textSize="10dp" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </HorizontalScrollView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/R2_layout_Scroll"
+                                android:orientation="horizontal">
+                                <Button
+                                    android:id="@+id/button1"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="综艺"
+                                    android:textColor="#fff"
+                                    android:background="@drawable/my_background1"/>
+                                <Button
+                                    android:id="@+id/button2"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="电影"
+                                    android:textColor="#fff"
+                                    android:background="@drawable/my_background1"/>
+                                <Button
+                                   android:id="@+id/button3"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginBottom="6dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="榜单"
+                                    android:textColor="#fff"
+                                    android:background="@drawable/my_background1"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:layout_marginTop="25dp"
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:contentInsetEnd="0dp"
+                        app:contentInsetLeft="0dp"
+                        app:contentInsetRight="0dp"
+                        app:contentInsetStart="0dp"
+                        app:layout_collapseMode="pin">
+                        <TextView
+                            android:id="@+id/toolbar_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="太阳"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textSize="20dp"/>
+                    </androidx.appcompat.widget.Toolbar>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <TextView
+                    android:text="我的作品"
+                    android:textStyle="bold"
+                    android:textColor="#121111"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:background="#E3E0E0"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"/>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
+</layout>
