@@ -29,6 +29,7 @@ class FollowFragment : BaseFragment<RepositoryImpl, FollowViewModel, FragmentFol
         initData()
         binding.followList.apply {
             this.layoutManager = layoutManager
+            this.addItemDecoration(FollowItemDecoration(requireActivity(),LinearLayoutManager.VERTICAL,R.layout.item_top_decor_follow))
             this.adapter = adapter
         }
     }
