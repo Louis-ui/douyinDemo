@@ -57,27 +57,7 @@ class ApiResultCall(
                     val body = response.body()
                     if (body is ApiResult.Success<*>) {
                         if (body.extra.error_code == "2190008") {
-                            GlobalScope.launch {
-                                withContext(Dispatchers.IO) {
-                                    AppSetting.REFRESH_TOKEN?.let {
-                                        when (val result = API.BACKEND_SERVICE.refreshToken(
-                                            AppSetting.CLIENT_KEY, "refresh_token",
-                                            it
-                                        )) {
-                                            is ApiResult.Success -> {
-                                                AppSetting.ACCESS_TOKEN = result.data?.access_token
-                                                AppSetting.REFRESH_TOKEN =
-                                                    result.data?.refresh_token
-                                                Log.d(
-                                                    "refresh-token",
-                                                    "onResponse: success refresh"
-                                                )
-                                            }
-                                            else -> {}
-                                        }
-                                    }
-                                }
-                            }
+                            refreshAccessToken()
                         } else {
                             callback.onResponse(this@ApiResultCall, Response.success(body))
                         }
@@ -127,5 +107,41 @@ class ApiResultCall(
         return delegate.timeout()
     }
 
+    private fun refreshAccessToken() {
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                AppSetting.REFRESH_TOKEN?.let {
+                    when (val result = API.BACKEND_SERVICE.refreshToken(
+                        AppSetting.CLIENT_KEY, "refresh_token",
+                        it
+                    )) {
+                        is ApiResult.Success -> {
+                            AppSetting.ACCESS_TOKEN = result.data?.access_token
+                            AppSetting.REFRESH_TOKEN =
+                                result.data?.refresh_token
+                            Log.d(
+                                "refresh-token",
+                                "onResponse: success refresh"
+                            )
+                        }
+                        else -> {}
+                    }
+                    when (val result = API.BACKEND_SERVICE.renewRefreshToken(
+                        AppSetting.CLIENT_KEY, it
+                    )) {
+                        is ApiResult.Success -> {
+                            AppSetting.REFRESH_TOKEN =
+                                result.data?.refresh_token
+                            Log.d(
+                                "renew-refresh-token",
+                                "onResponse: success refresh"
+                            )
+                        }
+                        else -> {}
+                    }
+                }
 
+            }
+        }
+    }
 }

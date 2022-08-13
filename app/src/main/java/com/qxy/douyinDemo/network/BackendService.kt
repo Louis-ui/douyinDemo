@@ -1,10 +1,6 @@
 package com.qxy.douyinDemo.network
 
-import com.qxy.douyinDemo.bean.ClientOauthInfo
-import com.qxy.douyinDemo.bean.LoginInfo
-import com.qxy.douyinDemo.bean.RefreshTokenInfo
-import com.qxy.douyinDemo.bean.RankInfos
-import com.qxy.douyinDemo.bean.User
+import com.qxy.douyinDemo.bean.*
 import com.qxy.douyinDemo.bean.VideoBean.Vbean
 import retrofit2.http.*
 
@@ -40,6 +36,12 @@ interface BackendService {
         @Field("refresh_token") refresh_token: String
     ): ApiResult<RefreshTokenInfo>
 
+    @FormUrlEncoded
+    @POST("oauth/renew_refresh_token/")
+    suspend fun renewRefreshToken(
+        @Field("client_key") client_key: String,
+        @Field("refresh_token") refresh_token: String
+    ): ApiResult<RenewRefreshTokenInfo>
 
     /**
      *video/list/ 获取视频
