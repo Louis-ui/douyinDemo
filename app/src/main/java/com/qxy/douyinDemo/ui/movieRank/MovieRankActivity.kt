@@ -1,5 +1,6 @@
 package com.qxy.douyinDemo.ui.movieRank
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
+import com.qxy.douyinDemo.ui.activity.MainActivity
 
 class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, ActivityMovieRankBinding>() {
     val views = ArrayList<Fragment>()
@@ -30,11 +32,14 @@ class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, Activi
         binding.ranklistViewpager.adapter = RankListPagerAdapter(supportFragmentManager, views)
         binding.ranklistViewpager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
         binding.tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(binding.ranklistViewpager))
+        binding.btnBack.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-
+            R.id.btn_back -> {
+                finish()
+            }
         }
     }
 
