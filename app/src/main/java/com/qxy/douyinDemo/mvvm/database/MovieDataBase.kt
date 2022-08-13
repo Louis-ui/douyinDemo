@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.qxy.douyinDemo.bean.MovieRankBean.Movie
+import com.qxy.douyinDemo.bean.RankInfo
 import com.qxy.douyinDemo.mvvm.dao.MovieDao
 
-@Database(entities = [Movie::class], version = 1, exportSchema = false)
+@Database(entities = [RankInfo::class], version = 1, exportSchema = false)
 abstract class MovieDataBase : RoomDatabase() {
 
     abstract fun getMovie(): MovieDao

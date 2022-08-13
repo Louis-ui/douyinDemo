@@ -46,6 +46,7 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
     }
 
     override fun processLogic() {
+        AppSetting.context = this
         ImmersionBar.with(this)
             .statusBarDarkFont(true)
             .init()
