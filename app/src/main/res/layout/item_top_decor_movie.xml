@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="mViewModel"
+            type="com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel" />
 
     </data>
 
@@ -28,7 +31,7 @@
                 android:id="@+id/movie_tab_title1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="本周榜 | 更新于7月30日 12:00"
+                android:text="@{mViewModel.movieRank.active_time}"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

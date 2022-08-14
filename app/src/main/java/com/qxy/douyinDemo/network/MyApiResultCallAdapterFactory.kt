@@ -58,6 +58,25 @@ class ApiResultCall(
                     if (body is ApiResult.Success<*>) {
                         if (body.extra.error_code == "2190008") {
                             refreshAccessToken()
+                            callback.onResponse(
+                                this@ApiResultCall,
+                                Response.success(
+                                    ApiResult.Error.ServerError<Nothing>(
+                                        2190008,
+                                        "token 过期"
+                                    )
+                                )
+                            )
+                        } else if (body.extra.error_code == "2190004"){
+                            callback.onResponse(
+                                this@ApiResultCall,
+                                Response.success(
+                                    ApiResult.Error.ServerError<Nothing>(
+                                        2190004,
+                                        "没权限"
+                                    )
+                                )
+                            )
                         } else {
                             callback.onResponse(this@ApiResultCall, Response.success(body))
                         }

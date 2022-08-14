@@ -40,7 +40,7 @@ class MovieRankViewModel(application: Application) : BaseViewModel<RepositoryImp
         tempList
     }
 
-    fun getMovieRank(): LiveData<RankInfos> {
+    fun getMovieRankFromBackEnd(): LiveData<RankInfos> {
         viewModelScope.launch {
             when (val result =
                 AppSetting.CLIENT_TOKEN?.let { repository?.getRankInfo(1, null, it) }) {

@@ -23,8 +23,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
 
     override fun setListener() {
         val layoutManager = LinearLayoutManager(context)
-//        val adapter = MovieItemAdapter(movieTypeCreate, movieItemList)
-        var adapter = MovieItemAdapter(movieItemList, movieTypeCreate, requireContext())
+        val adapter = MovieItemAdapter(movieItemList, movieTypeCreate, requireContext())
         initData(adapter)
         binding.moviesList.apply {
             this.layoutManager = layoutManager
@@ -47,7 +46,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
     fun initData(adapter: MovieItemAdapter) {
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
-                mViewModel?.getMovieRank()
+                mViewModel?.getMovieRankFromBackEnd()
                 mViewModel?.realMovieRank?.observe(this) {
                     for (i in 0 until it.size) {
                         movieItemList.add(it[i])
@@ -55,16 +54,13 @@ class MovieFragment(private val movieTypeCreate: Int) :
                     }
                     adapter.notifyDataSetChanged()
                 }
-//                mViewModel?.movieRank?.observe(this) {
-//                    Log.d("movieRank_data", "initData: ${it.toString()}")
-//                }
             }
 
             MovieItem.type.WEB_MOVIE_TYPE -> {
                 for (i in 0..20) {
                     movieItemList.add(
                         MovieItem(
-                            null, "title: $i","subtitle1: $i",
+                            null, "title: $i", "subtitle1: $i",
                             "subtitle2: $i", "subtitle3: $i",
                             MovieItem.type.WEB_MOVIE_TYPE
                         )

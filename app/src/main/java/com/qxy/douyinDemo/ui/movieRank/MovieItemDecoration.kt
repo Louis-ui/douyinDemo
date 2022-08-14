@@ -6,14 +6,16 @@ import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.qxy.douyinDemo.databinding.ItemTopDecorMovieBinding
 
 class MovieItemDecoration(
     private val mContext: Context,
     private val mOrientation: Int,
-    private val mLayout: Int
+    private val mLayout: Int,
 ) :
     ItemDecoration() {
     private var header: View? = null
