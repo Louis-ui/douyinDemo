@@ -1,5 +1,11 @@
 package com.qxy.douyinDemo.network
 
+import android.util.Log
+import com.qxy.douyinDemo.app.AppSetting
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.Request
 import okio.Timeout
 import retrofit2.*
@@ -49,19 +55,13 @@ class ApiResultCall(
                 //无论请求响应成功还是失败都回调Response.success
                 if (response.isSuccessful) {
                     val body = response.body()
-//                    if (body == null) {
-//                        callback.onResponse(
-//                            this@ApiResultCall,
-//                            Response.success(ApiResult.Error.ServerError<Nothing>(-1, "错误"))
-//                        )
-//                    } else {
-//                        if (body is ApiResult.Success<*>) {
-//                            if (body.errorCode == 0) {
-//                                callback.onResponse(this@ApiResultCall, Response.success(body))
-//                            }
-//                        }
-//                    }
-                    callback.onResponse(this@ApiResultCall, Response.success(body))
+                    if (body is ApiResult.Success<*>) {
+                        if (body.extra.error_code == "2190008") {
+                            refreshAccessToken()
+                        } else {
+                            callback.onResponse(this@ApiResultCall, Response.success(body))
+                        }
+                    }
                 } else {
                     callback.onResponse(
                         this@ApiResultCall,
@@ -107,5 +107,41 @@ class ApiResultCall(
         return delegate.timeout()
     }
 
+    private fun refreshAccessToken() {
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                AppSetting.REFRESH_TOKEN?.let {
+                    when (val result = API.BACKEND_SERVICE.refreshToken(
+                        AppSetting.CLIENT_KEY, "refresh_token",
+                        it
+                    )) {
+                        is ApiResult.Success -> {
+                            AppSetting.ACCESS_TOKEN = result.data?.access_token
+                            AppSetting.REFRESH_TOKEN =
+                                result.data?.refresh_token
+                            Log.d(
+                                "refresh-token",
+                                "onResponse: success refresh"
+                            )
+                        }
+                        else -> {}
+                    }
+                    when (val result = API.BACKEND_SERVICE.renewRefreshToken(
+                        AppSetting.CLIENT_KEY, it
+                    )) {
+                        is ApiResult.Success -> {
+                            AppSetting.REFRESH_TOKEN =
+                                result.data?.refresh_token
+                            Log.d(
+                                "renew-refresh-token",
+                                "onResponse: success refresh"
+                            )
+                        }
+                        else -> {}
+                    }
+                }
 
+            }
+        }
+    }
 }

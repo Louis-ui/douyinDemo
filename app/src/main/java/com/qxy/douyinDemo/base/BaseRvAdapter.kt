@@ -20,7 +20,7 @@ abstract class BaseRvAdapter<D, V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.
     open fun loadMore(list: List<D>) {
         if (dataList == null) dataList = ArrayList<D>()
         val start = dataList!!.size
-        dataList!!.addAll(list)
+        dataList!!.addAll(list as Collection<D>)
         notifyItemRangeChanged(start, list.size)
     }
 
@@ -39,7 +39,7 @@ abstract class BaseRvAdapter<D, V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.
         return if (dataList == null) 0 else dataList!!.size
     }
 
-    class ViewHolder<B : ViewDataBinding>(var viewDataBinding: B) : RecyclerView.ViewHolder(
+      open class ViewHolder<B : ViewDataBinding>(var viewDataBinding: B) : RecyclerView.ViewHolder(
         viewDataBinding!!.root
     )
 
@@ -58,4 +58,5 @@ abstract class BaseRvAdapter<D, V : BaseRvAdapter.ViewHolder<*>> : RecyclerView.
     }
 
 }
+
 

@@ -15,10 +15,13 @@ object AppSetting {
 
     const val CLIENT_SECRET = "d667d5f293258462f0a1c2b0029695c7"
 
-
     var ACCESS_TOKEN: String? = null
+
+    var REFRESH_TOKEN: String? = null
 
     var OPEN_ID: String? = null
 
     var context: Context? = null
+
+    var CLIENT_TOKEN: String? = null
 }
