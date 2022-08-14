@@ -36,61 +36,22 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "data.external.billboard_stars,data.external.billboard_sport,trial.whitelist" +
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
 
-    private val mScope =
-        "user_info"
-
-    var douYinOpenApi: DouYinOpenApi? = null
-
     override fun getContextViewId(): Int {
         return R.layout.activity_main
     }
 
     override fun processLogic() {
-        AppSetting.context = this
-        ImmersionBar.with(this)
-            .statusBarDarkFont(true)
-            .init()
-        DouYinOpenApiFactory.init(DouYinOpenConfig(AppSetting.CLIENT_KEY))
-        douYinOpenApi = DouYinOpenApiFactory.create(this)
-        sendAuth()
-        mViewModel.loginResult.observe(this, Observer {
-            Log.d("accessToken", "onCreate: $it.accessToken")
-            Log.d("openId", "onCreate: $it.openId")
-        })
-        mViewModel.clientOauthResult.observe(this) {
-            Log.d("client_token", "${it.access_token}")
-        }
+        Log.d("MainActivity", "processLogic called!")
     }
 
     override fun setListener() {
-        binding.btnGetAccessToken.setOnClickListener(this)
-//        binding.btnGoMovieRankList.setOnClickListener(this)
+
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.btn_getAccessToken -> {
-                val authCode =
-                    getSharedPreferences("douyin", Context.MODE_PRIVATE).getString(
-                        "authCode",
-                        null
-                    )
-                Log.d("authCode", "onCreate: $authCode")
-                authCode?.let {
-                    mViewModel.toLogin(it)
-                    mViewModel.getClientToken()
-                }
-            }
-        }
-    }
 
-    private fun sendAuth(): Boolean? {
-        val request = Authorization.Request()
-        request.scope = mScope // 用户授权时必选权限
-        request.optionalScope0 = "mobile" // 用户授权时可选权限（默认选择）
-        //        request.optionalScope0 = mOptionalScope1;    // 用户授权时可选权限（默认不选）
-        request.state = "ww" // 用于保持请求和回调的状态，授权请求后原样带回给第三方。
-        return douYinOpenApi?.authorize(request) // 优先使用抖音app进行授权，如果抖音app因版本或者其他原因无法授权，则使用wap页授权
+        }
     }
 
 }
