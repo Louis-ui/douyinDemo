@@ -7,7 +7,6 @@ import okio.Buffer
 import java.util.concurrent.TimeUnit
 
 object OkHttpHelper {
-
     val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -18,7 +17,6 @@ object OkHttpHelper {
             .retryOnConnectionFailure(true)
             .build()
     }
-
 
     private val requestHeaderInterceptor: Interceptor by lazy {
         object : Interceptor {
@@ -70,5 +68,4 @@ object OkHttpHelper {
         writeTo(buffer)
         return buffer.readUtf8()
     }
-
 }

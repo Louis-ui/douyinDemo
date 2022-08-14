@@ -14,13 +14,13 @@ import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<T : BaseModel, vm : BaseViewModel<T>, vdb : ViewDataBinding> :
     Fragment(), View.OnClickListener {
-    //获取当前activity布局文件
+    // 获取当前activity布局文件
     protected abstract fun getContentViewId(): Int
 
-    //处理逻辑业务
+    // 处理逻辑业务
     protected abstract fun processLogic(savedInstanceState: Bundle?)
 
-    //所有监听放这里
+    // 所有监听放这里
     protected abstract fun setListener()
     protected var mViewModel: vm? = null
     protected var mContentView: View? = null

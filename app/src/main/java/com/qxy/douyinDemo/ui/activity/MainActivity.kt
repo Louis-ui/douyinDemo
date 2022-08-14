@@ -1,24 +1,12 @@
 package com.qxy.douyinDemo.ui.activity
 
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.Observer
-import com.bytedance.sdk.open.aweme.authorize.model.Authorization
-import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
-import com.bytedance.sdk.open.douyin.DouYinOpenConfig
-import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
-import com.gyf.immersionbar.ImmersionBar
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
-import com.qxy.douyinDemo.ui.movieRank.MovieRankActivity
 
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 

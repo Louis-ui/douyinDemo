@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.bean.VideoBean
+package com.qxy.douyinDemo.bean.videoBean
 
 class List {
     val title: String? = null
@@ -12,5 +12,4 @@ class List {
     val media_type = 0
     val cover: String? = null
     val statistics: Statistics? = null
-
 }

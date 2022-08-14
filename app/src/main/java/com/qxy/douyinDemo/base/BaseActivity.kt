@@ -17,13 +17,13 @@ abstract class BaseActivity<T : BaseModel, vm : BaseViewModel<T>, vdb : ViewData
     protected lateinit var mViewModel: vm
     protected lateinit var binding: vdb
 
-    //获取当前Acyivity 布局文件
+    // 获取当前Activity布局文件
     abstract fun getContextViewId(): Int
 
-    //处理逻辑业务
+    // 处理逻辑业务
     abstract fun processLogic(): Unit
 
-    //设置所有监听
+    // 设置所有监听
     abstract fun setListener(): Unit
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ abstract class BaseActivity<T : BaseModel, vm : BaseViewModel<T>, vdb : ViewData
         return this
     }
 
-    //快速获取textView或EditText上文字内容
+    // 快速获取textView或EditText上文字内容
     public fun getStringByUI(view: View): String {
         if (view is EditText) {
             return view.text.toString().trim { it <= ' ' }

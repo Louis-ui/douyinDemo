@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
 
     </data>
@@ -14,11 +13,11 @@
 
         <fragment
             android:id="@+id/main_fragment"
-            android:name="com.qxy.douyinDemo.UI.Fragment.MyFragment"
+            android:name="com.qxy.douyinDemo.ui.fragment.MyFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/main_layout"
-            android:layout_marginBottom="-3dp" />
+            android:layout_marginBottom="-3dp"
+            android:layout_above="@+id/main_layout" />
 
         <LinearLayout
             android:id="@+id/main_layout"

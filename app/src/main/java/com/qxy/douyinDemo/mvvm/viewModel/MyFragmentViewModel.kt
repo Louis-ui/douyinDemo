@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.base.BaseViewModel
-import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.User
-import com.qxy.douyinDemo.bean.VideoBean.Vbean
+import com.qxy.douyinDemo.bean.videoBean.Vbean
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.network.ApiResult
 import kotlinx.coroutines.launch
