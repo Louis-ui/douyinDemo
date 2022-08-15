@@ -2,14 +2,13 @@ package com.qxy.douyinDemo.ui.followFans
 
 import android.util.Log
 import android.view.View
-import android.widget.TableLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
-import com.qxy.douyinDemo.bean.FollowItem
+import com.qxy.douyinDemo.bean.followBean.FollowItem
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.FollowViewModel
 import com.qxy.douyinDemo.databinding.ActivityFollowBinding
@@ -18,7 +17,7 @@ class FollowActivity : BaseActivity<RepositoryImpl, FollowViewModel, ActivityFol
 
     val followViews = ArrayList<Fragment>()
 
-    override fun getContextViewId(): Int {
+    override fun getContentViewId(): Int {
         return R.layout.activity_follow
     }
 

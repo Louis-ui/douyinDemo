@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.bean
+package com.qxy.douyinDemo.bean.followBean
 
 class FollowItem(
     val username: String,

@@ -6,10 +6,11 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseFragment
-import com.qxy.douyinDemo.bean.FollowItem
+import com.qxy.douyinDemo.bean.followBean.FollowItem
 import com.qxy.douyinDemo.databinding.FragmentFollowBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.FollowViewModel
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 
 class FollowFragment(private val followTypeCreate: Int) :
     BaseFragment<RepositoryImpl, FollowViewModel, FragmentFollowBinding>() {
@@ -33,7 +34,7 @@ class FollowFragment(private val followTypeCreate: Int) :
             when (followTypeCreate) {
                 FollowItem.type.FOLLOW_TYPE -> {
                     this.addItemDecoration(
-                        FollowItemDecoration(
+                        MovieItemDecoration(
                             requireActivity(),
                             LinearLayoutManager.VERTICAL,
                             R.layout.item_top_decor_follow
@@ -43,7 +44,7 @@ class FollowFragment(private val followTypeCreate: Int) :
 
                 FollowItem.type.FANS_TYPE -> {
                     this.addItemDecoration(
-                        FollowItemDecoration(
+                        MovieItemDecoration(
                             requireActivity(),
                             LinearLayoutManager.VERTICAL,
                             R.layout.item_top_decor_fans

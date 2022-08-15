@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">douyinDemo</string>
+    <!-- follow activity -->
     <string name="my_follow">我的关注(xxx人)</string>
     <string name="my_fans">我的粉丝(xxx人)</string>
     <!-- movie rank activity -->

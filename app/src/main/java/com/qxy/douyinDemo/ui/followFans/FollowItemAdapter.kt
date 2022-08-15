@@ -4,12 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.base.BaseRvAdapter
-import com.qxy.douyinDemo.bean.FollowItem
+import com.qxy.douyinDemo.bean.followBean.FollowItem
 
 class FollowItemAdapter(private val followItemList: List<FollowItem>) :
     RecyclerView.Adapter<FollowItemAdapter.ViewHolder>() {
