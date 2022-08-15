@@ -31,6 +31,11 @@ object OkHttpHelper {
                         requestBuilder.addHeader(
                             "Content-Type", "application/x-www-form-urlencoded"
                         )
+                    } else if(originalRequest.url().toString().contains("client_token")){
+                        requestBuilder.addHeader(
+                            "Content-type","multipart/form-data"
+                        )
+
                     } else {
                         requestBuilder.addHeader(
                             "Content-Type", "application/json"

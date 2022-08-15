@@ -1,8 +1,10 @@
 package com.qxy.douyinDemo.network
 
+import com.qxy.douyinDemo.bean.Extra
+
 sealed class ApiResult<T> {
 
-    data class Success<T>(val data: T?, val message: String) : ApiResult<T>()
+    data class Success<T>(val data: T?, val message: String, val extra: Extra) : ApiResult<T>()
 
     /**
      * 网络请求失败

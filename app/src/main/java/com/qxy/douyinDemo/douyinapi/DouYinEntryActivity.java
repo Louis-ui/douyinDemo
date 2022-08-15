@@ -16,7 +16,6 @@ import com.bytedance.sdk.open.aweme.common.model.BaseReq;
 import com.bytedance.sdk.open.aweme.common.model.BaseResp;
 import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory;
 import com.bytedance.sdk.open.douyin.api.DouYinOpenApi;
-import com.qxy.douyinDemo.app.AppSetting;
 
 public class DouYinEntryActivity extends Activity implements IApiEventHandler {
 
