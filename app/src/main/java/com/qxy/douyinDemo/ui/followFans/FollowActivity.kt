@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
+import com.qxy.douyinDemo.bean.FollowItem
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.FollowViewModel
 import com.qxy.douyinDemo.databinding.ActivityFollowBinding
@@ -26,8 +27,8 @@ class FollowActivity : BaseActivity<RepositoryImpl, FollowViewModel, ActivityFol
     }
 
     override fun setListener() {
-        followViews.add(FollowFragment())
-        followViews.add(FollowFragment())
+        followViews.add(FollowFragment(FollowItem.type.FOLLOW_TYPE))
+        followViews.add(FollowFragment(FollowItem.type.FANS_TYPE))
         binding.viewPager.adapter = FollowListPagerAdapter(supportFragmentManager, followViews)
         binding.viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
         binding.tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(binding.viewPager))

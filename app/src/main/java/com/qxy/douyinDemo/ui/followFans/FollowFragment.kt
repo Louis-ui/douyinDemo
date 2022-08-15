@@ -11,7 +11,8 @@ import com.qxy.douyinDemo.databinding.FragmentFollowBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.FollowViewModel
 
-class FollowFragment : BaseFragment<RepositoryImpl, FollowViewModel, FragmentFollowBinding>() {
+class FollowFragment(private val followTypeCreate: Int) :
+    BaseFragment<RepositoryImpl, FollowViewModel, FragmentFollowBinding>() {
 
     private val followItemList = ArrayList<FollowItem>()
 
@@ -29,7 +30,27 @@ class FollowFragment : BaseFragment<RepositoryImpl, FollowViewModel, FragmentFol
         initData()
         binding.followList.apply {
             this.layoutManager = layoutManager
-            this.addItemDecoration(FollowItemDecoration(requireActivity(),LinearLayoutManager.VERTICAL,R.layout.item_top_decor_follow))
+            when (followTypeCreate) {
+                FollowItem.type.FOLLOW_TYPE -> {
+                    this.addItemDecoration(
+                        FollowItemDecoration(
+                            requireActivity(),
+                            LinearLayoutManager.VERTICAL,
+                            R.layout.item_top_decor_follow
+                        )
+                    )
+                }
+
+                FollowItem.type.FANS_TYPE -> {
+                    this.addItemDecoration(
+                        FollowItemDecoration(
+                            requireActivity(),
+                            LinearLayoutManager.VERTICAL,
+                            R.layout.item_top_decor_fans
+                        )
+                    )
+                }
+            }
             this.adapter = adapter
         }
     }
@@ -41,14 +62,32 @@ class FollowFragment : BaseFragment<RepositoryImpl, FollowViewModel, FragmentFol
     }
 
     private fun initData() {
-        for (i in 0..20) {
-            followItemList.add(
-                FollowItem(
-                    "username: $i", "country: $i",
-                    "province: $i", "city: $i",
-                    "gender"
-                )
-            )
+        when (followTypeCreate) {
+            FollowItem.type.FOLLOW_TYPE -> {
+                for (i in 0..20) {
+                    followItemList.add(
+                        FollowItem(
+                            "username: $i", "country: $i",
+                            "province: $i", "city: $i",
+                            "关注",
+                            FollowItem.type.FOLLOW_TYPE
+                        )
+                    )
+                }
+            }
+
+            FollowItem.type.FANS_TYPE -> {
+                for (i in 0..20) {
+                    followItemList.add(
+                        FollowItem(
+                            "username: $i", "country: $i",
+                            "province: $i", "city: $i",
+                            "粉丝",
+                            FollowItem.type.FANS_TYPE
+                        )
+                    )
+                }
+            }
         }
     }
 

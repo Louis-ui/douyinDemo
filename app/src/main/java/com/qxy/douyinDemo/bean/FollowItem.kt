@@ -5,5 +5,11 @@ class FollowItem(
     val country: String,
     val province: String,
     val city: String,
-    val gender: String
-)
+    val gender: String,
+    val movieType: Int
+) {
+    object type {
+        val FOLLOW_TYPE = 0
+        val FANS_TYPE = 1
+    }
+}
