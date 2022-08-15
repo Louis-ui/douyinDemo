@@ -47,9 +47,9 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
 
     //通过随机数来设置点赞数
     fun setLike() {
-        binding.myText3.text = Random.nextInt(6,60).toString();
-        binding.myText4.text = Random.nextInt(6,60).toString();
-        binding.myText5.text = Random.nextInt(6,60).toString();
+        binding.myText3.text = Random.nextInt(6,60).toString()
+        binding.myText4.text = Random.nextInt(6,60).toString()
+        binding.myText5.text = Random.nextInt(6,60).toString()
     }
 
     //进行个人资料的设置

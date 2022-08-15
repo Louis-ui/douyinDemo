@@ -5,6 +5,4 @@ import com.qxy.douyinDemo.base.BaseDao
 import com.qxy.douyinDemo.bean.RankInfo
 
 @Dao
-abstract class MovieDao : BaseDao<RankInfo>() {
-
-}
+abstract class MovieDao : BaseDao<RankInfo>()

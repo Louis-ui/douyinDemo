@@ -7,6 +7,4 @@ data class Data (
     val description: String?,
     val has_more :Boolean,
     val list: List<com.qxy.douyinDemo.bean.videoBean.List>?,
-    val cursor :Int= 0) {
-
-}
+    val cursor :Int= 0)

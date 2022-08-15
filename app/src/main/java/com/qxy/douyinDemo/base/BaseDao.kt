@@ -6,15 +6,36 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
 import java.lang.reflect.ParameterizedType
 
+/**
+ * A base Data Access Object(DAO) class for all in the project, implemented some basic
+ * CRUD operation with Room
+ * @param T Data class
+ * @property tableName table name
+ * @author louis-ui
+ */
 abstract class BaseDao<T> {
+    val tableName: String
+        get() {
+            val clazz = (javaClass.superclass.genericSuperclass as ParameterizedType)
+                .actualTypeArguments[0] as Class<*>
+            val tableName = clazz.simpleName
+            Log.d("ez", "getTableName: -->$tableName")
+            return tableName
+        }
     /**
-     * 添加单个对象
+     * Add one object into table. If it has a same id(primary key) in the database then
+     * it will replace that data for particular id
+     * @param obj the object want to be added
+     * @return Object's id
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(obj: T): Long
 
     /**
-     * 添加数组对象数据
+     * Add more than one object into table. If it has a same id(primary key) in the
+     * database then it will replace that data for particular id
+     * @param obj objects want to add
+     * @return Objects' id
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg obj: T): LongArray?
@@ -26,17 +47,23 @@ abstract class BaseDao<T> {
     abstract fun insert(personList: List<T>): List<Long>
 
     /**
-     * 根据对象中的主键删除
+     * Delete one object based on id(primary key)
+     * @param obj the object want to be deleted
      */
     @Delete
     abstract fun delete(obj: T)
 
     /**
-     * 根据对象中的主键更新
+     * Update object based on id(primary key)
+     * @param obj objects want to add
      */
     @Update
     abstract fun update(vararg obj: T): Int
 
+    /**
+     * Delete all object in table
+     * @return Number of impact lines
+     */
     fun deleteAll(): Int {
         val query = SimpleSQLiteQuery(
             "delete from $tableName"
@@ -44,6 +71,10 @@ abstract class BaseDao<T> {
         return doDeleteAll(query)
     }
 
+    /**
+     * Fina all object in table
+     * @return All object in table
+     */
     fun findAll(): List<T>? {
         val query = SimpleSQLiteQuery(
             "select * from $tableName"
@@ -51,6 +82,10 @@ abstract class BaseDao<T> {
         return doFindAll(query)
     }
 
+    /**
+     * Find object by id(primary key)
+     * @return The object
+     */
     fun find(id: Long): T? {
         val query = SimpleSQLiteQuery(
             "select * from $tableName where id = ?", arrayOf<Any>(id)
@@ -59,18 +94,23 @@ abstract class BaseDao<T> {
     }
 
     /**
-     * [params] 列名
-     * [value] 列的值
+     * Delete object by condition
+     * @param params column name
+     * @param value value in the column
      */
     fun deleteByParams(params: String, value: String): Int {
         val query = SimpleSQLiteQuery("delete from $tableName where $params='${value}'")
-        Log.d("ez", "deleteByParams: ${"delete from $tableName where $params='${value}'"}")
+//        Log.d("Dao", "deleteByParams: ${"delete from $tableName where $params='${value}'"}")
         return doDeleteByParams(query)
     }
 
     /**
-     * 分页查询，支持传入多个字段，但必须要按照顺序传入
-     * key = value，key = value 的形式，一一对应（可以使用 stringbuilder 去构造一下，这里就不演示了）
+     * Paging query, support multiple fields, but must be passed in order(like 'key = value，
+     * key = value', you can use StringBuilder to construct).
+     * @param string Query condition
+     * @param limit Limit condition in query
+     * @param offset Offset condition in query
+     * @return object list
      */
     fun doQueryByLimit(vararg string: String, limit: Int = 10, offset: Int = 0): List<T>? {
         val query =
@@ -79,7 +119,12 @@ abstract class BaseDao<T> {
     }
 
     /**
-     * 降序分页查询
+     * Descending paging query, support multiple fields, but must be passed in order(like 'key = value，
+     * key = value', you can use StringBuilder to construct).
+     * @param string Query condition
+     * @param limit Limit condition in query
+     * @param offset Offset condition in query
+     * @return object list
      */
     fun doQueryByOrder(vararg string: String, limit: Int = 10, offset: Int = 10): List<T>? {
         val query =
@@ -87,17 +132,7 @@ abstract class BaseDao<T> {
         return doQueryByLimit(query)
     }
 
-    /**
-     * 获取表名
-     */
-    val tableName: String
-        get() {
-            val clazz = (javaClass.superclass.genericSuperclass as ParameterizedType)
-                .actualTypeArguments[0] as Class<*>
-            val tableName = clazz.simpleName
-            Log.d("ez", "getTableName: -->$tableName")
-            return tableName
-        }
+    // Function below is RawQuery method, you have no need to override or implement it.
 
     @RawQuery
     protected abstract fun doFindAll(query: SupportSQLiteQuery): List<T>?
@@ -116,6 +151,4 @@ abstract class BaseDao<T> {
 
     @RawQuery
     protected abstract fun doQueryByOrder(query: SupportSQLiteQuery): List<T>?
-
-
 }

@@ -22,9 +22,7 @@ class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLogin
     private val mScope = "user_info"
     var douYinOpenApi: DouYinOpenApi? = null
 
-    override fun getContextViewId(): Int {
-        return R.layout.activity_login
-    }
+    override fun getContentViewId(): Int = R.layout.activity_login
 
     override fun processLogic() {
         AppSetting.context = this

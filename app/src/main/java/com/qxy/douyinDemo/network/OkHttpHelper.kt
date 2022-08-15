@@ -23,7 +23,7 @@ object OkHttpHelper {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val originalRequest = chain.request()
                 Log.d("network", "$originalRequest data={${originalRequest.body()?.string()}}")
-                if (originalRequest.url().host()!!.contentEquals(AppSetting.BACKEND_HOST)) {
+                if (originalRequest.url().host().contentEquals(AppSetting.BACKEND_HOST)) {
                     val requestBuilder = originalRequest.newBuilder()
                     if (originalRequest.url().toString().contains("access_token")) {
                         requestBuilder.addHeader(

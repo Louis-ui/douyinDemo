@@ -17,7 +17,7 @@ import com.qxy.douyinDemo.ui.fragment.MovieFragment
 class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, ActivityMovieRankBinding>() {
     val views = ArrayList<Fragment>()
 
-    override fun getContextViewId(): Int {
+    override fun getContentViewId(): Int {
         return R.layout.activity_movie_rank
     }
 

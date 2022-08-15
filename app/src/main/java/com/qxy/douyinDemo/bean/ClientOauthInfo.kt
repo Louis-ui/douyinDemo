@@ -22,6 +22,4 @@ class ClientOauthInfo(
     val description: String? ,
     val error_code: String? ,
     val expires_in: String? ,
-    val log_id: String?): Serializable {
-
-}
+    val log_id: String?): Serializable

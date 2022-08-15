@@ -24,7 +24,7 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "data.external.billboard_stars,data.external.billboard_sport,trial.whitelist" +
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
 
-    override fun getContextViewId(): Int {
+    override fun getContentViewId(): Int {
         return R.layout.activity_main
     }
 

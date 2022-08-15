@@ -12,7 +12,7 @@ class RankInfos(
     var list: List<RankInfo>
 ) : Serializable {
     override fun toString(): String {
-        return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=${list.toString()})"
+        return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=$list)"
     }
 }
 

@@ -53,7 +53,7 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
     @Override
     public void onErrorIntent(@Nullable Intent intent) {
         // 错误数据
-        Toast.makeText(this, "intent出错啦", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "intent error!", Toast.LENGTH_LONG).show();
         finish();
     }
 }

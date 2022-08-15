@@ -7,6 +7,4 @@ class Extra(
      val sub_description: String?,
      val logid: String?,
      val now: Long
-) {
-
-}
+)
