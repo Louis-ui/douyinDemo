@@ -1,7 +1,6 @@
 package com.qxy.douyinDemo.mvvm.viewModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -14,7 +13,6 @@ import com.qxy.douyinDemo.network.ApiResult
 import kotlinx.coroutines.launch
 
 class LoginViewModel(application: Application) : BaseViewModel<RepositoryImpl>(application) {
-
     var loginResult = MutableLiveData<LoginInfo>()
     var clientOauthResult = MutableLiveData<ClientOauthInfo>()
 
@@ -47,8 +45,4 @@ class LoginViewModel(application: Application) : BaseViewModel<RepositoryImpl>(a
         }
         return clientOauthResult
     }
-
-
-
-
 }

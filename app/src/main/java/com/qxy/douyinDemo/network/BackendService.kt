@@ -1,11 +1,10 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.*
-import com.qxy.douyinDemo.bean.VideoBean.Vbean
+import com.qxy.douyinDemo.bean.videoBean.Vbean
 import retrofit2.http.*
 
 interface BackendService {
-
     @FormUrlEncoded
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("oauth/access_token/")
@@ -67,6 +66,5 @@ interface BackendService {
         @Query("type") type: Int,
         @Query("version") version: Int?
     ): ApiResult<RankInfos>
-
 }
 

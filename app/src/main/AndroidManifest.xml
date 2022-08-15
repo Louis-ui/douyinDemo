@@ -44,7 +44,6 @@
             android:launchMode="singleTask"
             android:taskAffinity="com.qxy.douyinDemo" />
 
-
     </application>
 
 </manifest>

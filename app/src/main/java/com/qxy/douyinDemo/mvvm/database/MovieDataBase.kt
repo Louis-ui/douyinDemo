@@ -9,7 +9,6 @@ import com.qxy.douyinDemo.mvvm.dao.MovieDao
 
 @Database(entities = [RankInfo::class], version = 1, exportSchema = false)
 abstract class MovieDataBase : RoomDatabase() {
-
     abstract fun getMovie(): MovieDao
 
     companion object {
@@ -31,5 +30,4 @@ abstract class MovieDataBase : RoomDatabase() {
                 .build()
         }
     }
-
 }

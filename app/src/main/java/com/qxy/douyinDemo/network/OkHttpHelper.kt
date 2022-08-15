@@ -7,7 +7,6 @@ import okio.Buffer
 import java.util.concurrent.TimeUnit
 
 object OkHttpHelper {
-
     val okHttpClient: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -19,13 +18,12 @@ object OkHttpHelper {
             .build()
     }
 
-
     private val requestHeaderInterceptor: Interceptor by lazy {
         object : Interceptor {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val originalRequest = chain.request()
                 Log.d("network", "$originalRequest data={${originalRequest.body()?.string()}}")
-                if (originalRequest.url().host()!!.contentEquals(AppSetting.BACKEND_HOST)) {
+                if (originalRequest.url().host().contentEquals(AppSetting.BACKEND_HOST)) {
                     val requestBuilder = originalRequest.newBuilder()
                     if (originalRequest.url().toString().contains("access_token")) {
                         requestBuilder.addHeader(
@@ -70,5 +68,4 @@ object OkHttpHelper {
         writeTo(buffer)
         return buffer.readUtf8()
     }
-
 }

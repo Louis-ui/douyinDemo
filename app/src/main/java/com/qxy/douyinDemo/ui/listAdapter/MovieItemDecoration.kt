@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.ui.listAdapter
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,18 +6,14 @@ import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.qxy.douyinDemo.databinding.ItemTopDecorMovieBinding
 
 class MovieItemDecoration(
     private val mContext: Context,
     private val mOrientation: Int,
-    private val mLayout: Int,
-) :
-    ItemDecoration() {
+    private val mLayout: Int) : ItemDecoration() {
     private var header: View? = null
 
     override fun onDrawOver(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
@@ -82,8 +78,7 @@ class MovieItemDecoration(
 
     override fun getItemOffsets(
         outRect: Rect, view: View, parent: RecyclerView,
-        state: RecyclerView.State
-    ) {
+        state: RecyclerView.State) {
         if (header == null) {
             initHeader(parent)
         }

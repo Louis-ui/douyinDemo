@@ -1,9 +1,8 @@
-package com.qxy.douyinDemo.ui.login
+package com.qxy.douyinDemo.ui.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.lifecycle.Observer
 import android.util.Log
 import android.view.View
 import com.bytedance.sdk.open.aweme.authorize.model.Authorization
@@ -17,19 +16,13 @@ import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityLoginBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.LoginViewModel
-import androidx.lifecycle.Observer
-import com.qxy.douyinDemo.ui.activity.MainActivity
 
 class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLoginBinding>() {
 
-    private val mScope =
-        "user_info"
-
+    private val mScope = "user_info"
     var douYinOpenApi: DouYinOpenApi? = null
 
-    override fun getContextViewId(): Int {
-        return R.layout.activity_login
-    }
+    override fun getContentViewId(): Int = R.layout.activity_login
 
     override fun processLogic() {
         AppSetting.context = this
@@ -73,11 +66,16 @@ class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLogin
 
     private fun sendAuth(): Boolean? {
         val request = Authorization.Request()
-        request.scope = mScope // 用户授权时必选权限
-        request.optionalScope0 = "mobile" // 用户授权时可选权限（默认选择）
-        //        request.optionalScope0 = mOptionalScope1;    // 用户授权时可选权限（默认不选）
-        request.state = "ww" // 用于保持请求和回调的状态，授权请求后原样带回给第三方。
-        return douYinOpenApi?.authorize(request) // 优先使用抖音app进行授权，如果抖音app因版本或者其他原因无法授权，则使用wap页授权
+        // 用户授权时必选权限
+        request.scope = mScope
+        // 用户授权时可选权限（默认选择）
+        request.optionalScope0 = "mobile"
+        // 用户授权时可选权限（默认不选）
+        // request.optionalScope0 = mOptionalScope1;
+        // 用于保持请求和回调的状态，授权请求后原样带回给第三方。
+        request.state = "ww"
+        // 优先使用抖音app进行授权，如果抖音app因版本或者其他原因无法授权，则使用wap页授权
+        return douYinOpenApi?.authorize(request)
     }
 
 }

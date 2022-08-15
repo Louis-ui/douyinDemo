@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.bean.VideoBean
+package com.qxy.douyinDemo.bean.videoBean
 
 class Statistics {
      val forward_count = 0

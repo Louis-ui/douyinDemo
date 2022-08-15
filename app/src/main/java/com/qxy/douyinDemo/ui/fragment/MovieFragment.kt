@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -6,10 +6,12 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseFragment
-import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
+import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemAdapter
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 
 class MovieFragment(private val movieTypeCreate: Int) :
     BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {

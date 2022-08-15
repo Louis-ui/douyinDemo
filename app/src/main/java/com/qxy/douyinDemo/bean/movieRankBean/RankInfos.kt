@@ -12,7 +12,7 @@ class RankInfos(
     var list: List<RankInfo>
 ) : Serializable {
     override fun toString(): String {
-        return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=${list.toString()})"
+        return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=$list)"
     }
 }
 
@@ -42,12 +42,31 @@ class RankInfo(
     @ColumnInfo(name = "sub_error_code") var sub_error_code: String?
 ) : Serializable {
     override fun toString(): String {
-        return "RankInfo(actors=$actors,\n maoyan_id=$maoyan_id,\n name=$name,\n name_en=$name_en,\n areas=$areas,\n directors=$directors,\n discussion_hot=$discussion_hot,\n id=$id,\n search_hot=$search_hot,\n influence_hot=$influence_hot,\n release_data=$release_date,\n topic_hot=$topic_hot,\n type=$type,\n hot=$hot,\n poster=$poster,\n tags=$tags,\n log_id=$log_id,\n now=$now,\n sub_description=$sub_description,\n sub_error_code=$sub_error_code)"
+        return "RankInfo(" +
+                "actors=$actors,\n " +
+                "maoyan_id=$maoyan_id,\n " +
+                "name=$name,\n " +
+                "name_en=$name_en,\n " +
+                "areas=$areas,\n " +
+                "directors=$directors,\n " +
+                "discussion_hot=$discussion_hot,\n " +
+                "id=$id,\n " +
+                "search_hot=$search_hot,\n " +
+                "influence_hot=$influence_hot,\n " +
+                "release_data=$release_date,\n " +
+                "topic_hot=$topic_hot,\n " +
+                "type=$type,\n " +
+                "hot=$hot,\n " +
+                "poster=$poster,\n " +
+                "tags=$tags,\n " +
+                "log_id=$log_id,\n " +
+                "now=$now,\n " +
+                "sub_description=$sub_description,\n " +
+                "sub_error_code=$sub_error_code)"
     }
 }
 
 class StringListConverters {
-
     @TypeConverter
     fun stringToObject(value: String): List<String> {
         val listType = object : TypeToken<List<String>>() {}.type

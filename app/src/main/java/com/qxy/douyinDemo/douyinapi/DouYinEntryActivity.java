@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
-
 import com.bytedance.sdk.open.aweme.CommonConstants;
 import com.bytedance.sdk.open.aweme.authorize.model.Authorization;
 import com.bytedance.sdk.open.aweme.common.handler.IApiEventHandler;
@@ -55,7 +53,7 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler {
     @Override
     public void onErrorIntent(@Nullable Intent intent) {
         // 错误数据
-        Toast.makeText(this, "intent出错啦", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "intent error!", Toast.LENGTH_LONG).show();
         finish();
     }
 }

@@ -2,7 +2,6 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
 
     </data>
@@ -34,7 +33,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
-
             <LinearLayout
                 android:id="@+id/movie_title_layout"
                 android:layout_width="0dp"
@@ -46,7 +44,6 @@
                 app:layout_constraintEnd_toStartOf="@id/movie_right"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
-
                 <TextView
                     android:id="@+id/movie_title"
                     android:layout_width="wrap_content"
@@ -54,7 +51,6 @@
                     android:text="@string/movie_title"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
                 <TextView
                     android:id="@+id/movie_subtitle1"
                     android:layout_width="wrap_content"
@@ -63,7 +59,6 @@
                     android:text="@string/movie_subtitle1"
                     android:textColor="@color/gray"
                     android:textSize="11sp" />
-
                 <TextView
                     android:id="@+id/movie_subtitle2"
                     android:layout_width="wrap_content"
@@ -71,7 +66,6 @@
                     android:text="@string/movie_subtitle2"
                     android:textColor="@color/gray"
                     android:textSize="11sp" />
-
                 <TextView
                     android:id="@+id/movie_subtitle3"
                     android:layout_width="wrap_content"
@@ -96,8 +90,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="购票" />
+                    android:text="@string/buy_ticket" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

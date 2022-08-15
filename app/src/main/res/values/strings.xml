@@ -2,11 +2,28 @@
     <string name="app_name">douyinDemo</string>
     <string name="my_follow">我的关注(xxx人)</string>
     <string name="my_fans">我的粉丝(xxx人)</string>
+    <!-- movie rank activity -->
     <string name="cinema_movie">院线电影</string>
     <string name="web_movie">网络电影</string>
     <string name="movie_title">电影标题</string>
     <string name="movie_subtitle1">演员1 / 演员2 / 演员3</string>
     <string name="movie_subtitle2">共 xx 期</string>
-    <string name="movie_subtitle3">2022-01-01 播出</string>
+    <string name="movie_subtitle3">2022–01–01 播出</string>
+    <string name="rank_role">榜单规则</string>
+    <string name="buy_ticket">购票</string>
+    <!-- login page -->
     <string name="login">登 录</string>
+    <!-- my page -->
+    <string name="my_video">我的作品</string>
+    <string name="user_name">太阳</string>
+    <string name="user_douyin_id">抖音号:706948033</string>
+    <string name="user_like_count">获赞</string>
+    <string name="user_sub_count">关注</string>
+    <string name="user_fans_count">粉丝</string>
+    <string name="user_bio">点击添加介绍，让大家认识你…**</string>
+    <string name="douyin_store">抖音商城</string>
+    <string name="douyin_store_intro">美好生活触手可得</string>
+    <string name="tv_play">电视剧</string>
+    <string name="movie">电影</string>
+    <string name="tv_show">综艺</string>
 </resources>

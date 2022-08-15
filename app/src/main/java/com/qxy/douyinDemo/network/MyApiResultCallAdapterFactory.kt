@@ -48,11 +48,11 @@ class ApiResultCall(
      * KotlinExtensions#await()中会调用enqueue()方法
      */
     override fun enqueue(callback: Callback<Any>) {
-        //delegate为OkHttpCall
+        // delegate为OkHttpCall
         delegate.enqueue(object : Callback<Any> {
-            //网络请求成功返回，会回调该方法（无论status code是不是200）
+            // 网络请求成功返回，会回调该方法（无论status code是不是200）
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                //无论请求响应成功还是失败都回调Response.success
+                // 无论请求响应成功还是失败都回调Response.success
                 if (response.isSuccessful) {
                     val body = response.body()
                     if (body is ApiResult.Success<*>) {
