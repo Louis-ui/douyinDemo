@@ -10,6 +10,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import java.lang.reflect.ParameterizedType
+import android.util.LogPrinter
+import android.os.Looper
+import android.util.Log
+import android.util.Printer
 
 /**
  *  A base Activity class for all in the project, inherit from AppCompatActivity and
