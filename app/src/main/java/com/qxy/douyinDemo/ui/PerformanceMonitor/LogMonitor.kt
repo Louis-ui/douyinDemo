@@ -13,7 +13,6 @@ open class LogMonitor{
         mIoHandler.postDelayed(LogMonitor.Companion.mLogRunnable, LogMonitor.Companion.TIME_BLOCK)
     }
 
-
     //停止计时
     fun removeMonitor() {
         mIoHandler.removeCallbacks(LogMonitor.Companion.mLogRunnable)
