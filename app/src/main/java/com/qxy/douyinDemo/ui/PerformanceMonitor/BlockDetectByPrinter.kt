@@ -3,12 +3,13 @@ package com.qxy.douyinDemo.ui.PerformanceMonitor
 import android.os.Looper
 import android.util.Printer
 
-class BlockDetectByPrinter {
+
+class BlockDetectByPrinter:LogMonitor() {
     fun start() {
         Looper.getMainLooper().setMessageLogging(object : Printer {
-            //分发和处理消息开始前log
+            //分发和处理消息开始前的log
             private  val START = ">>>>> Dispatching"
-            //分发和处理消息结束后log
+            //分发和处理消息结束后的log
             private  val END = "<<<<< Finished"
 
             override fun println(x: String) {

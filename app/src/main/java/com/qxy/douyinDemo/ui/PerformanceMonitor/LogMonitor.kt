@@ -5,7 +5,7 @@ import android.os.HandlerThread
 import android.os.Looper
 import android.util.Log
 
-class LogMonitor private constructor() {
+open class LogMonitor{
     private val mIoHandler: Handler
 
     //开始计时
