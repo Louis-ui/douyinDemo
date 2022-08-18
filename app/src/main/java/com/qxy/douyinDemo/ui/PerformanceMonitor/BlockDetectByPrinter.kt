@@ -6,9 +6,9 @@ import android.util.Printer
 class BlockDetectByPrinter {
     fun start() {
         Looper.getMainLooper().setMessageLogging(object : Printer {
-            //分发和处理消息开始前的log
+            //分发和处理消息开始前log
             private  val START = ">>>>> Dispatching"
-            //分发和处理消息结束后的log
+            //分发和处理消息结束后log
             private  val END = "<<<<< Finished"
 
             override fun println(x: String) {

@@ -23,7 +23,7 @@ class LogMonitor private constructor() {
         private const val TAG = "LogMonitor"
         private val sInstance = LogMonitor()
 
-        //方法耗时的卡口,300毫秒
+        //设置方法耗时的卡口,300毫秒
         private const val TIME_BLOCK = 300L
         private val mLogRunnable = Runnable { //打印出执行的耗时方法的栈消息
             val sb = StringBuilder()
