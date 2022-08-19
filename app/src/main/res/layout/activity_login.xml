@@ -6,28 +6,32 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="140dp"
-            android:src="@drawable/app_icon" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+
+            android:src="@drawable/app_icon_4" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="570dp"
             android:background="@drawable/btn_bg_red"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
+    </FrameLayout>
 </layout>
