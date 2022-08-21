@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.UI.movieRank
 
 import android.content.Context
 import android.util.Log
@@ -7,14 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.base.BaseRvAdapter
 import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
-import com.qxy.douyinDemo.bean.RankInfos
-import com.qxy.douyinDemo.databinding.ListItemMovieBinding
 
 class MovieItemAdapter(
     private val movieItemList: List<MovieItem>,

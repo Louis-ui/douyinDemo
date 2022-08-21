@@ -1,10 +1,11 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.UI.movieRank
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
+import com.qxy.douyinDemo.UI.movieRank.MovieItemDecoration
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
@@ -44,7 +45,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
         }
     }
 
-    fun initData(adapter: MovieItemAdapter) {
+    fun initData(adapter : MovieItemAdapter) {
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
                 mViewModel?.getMovieRank()

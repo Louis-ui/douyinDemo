@@ -24,6 +24,8 @@ class MainViewModel(application: Application) : BaseViewModel<RepositoryImpl>(ap
             when (val result = repository?.getToken(code)) {
                 is ApiResult.Success -> {
                     loginResult.value = result.data!!
+                    AppSetting.ACCESS_TOKEN2=result.data.access_token
+                    AppSetting.ACCESS_TOKEN3=result.data.access_token
                 }
                 is ApiResult.Error.ServerError -> {}
                 is ApiResult.Error.Exception -> {}

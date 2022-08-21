@@ -1,16 +1,11 @@
 package com.qxy.douyinDemo.bean.VideoBean
 
-class List {
-    val title: String? = null
-    val is_top = false
-    val create_time: Long = 0
-    val is_reviewed = false
-    val video_status = 0
-    val share_url: String? = null
-    val item_id: String? = null
-    val video_id: String? = null
-    val media_type = 0
-    val cover: String? = null
-    val statistics: Statistics? = null
-
+data class List(val cover: String,
+                val lvideo_id: String,
+                val video_status: Int,
+                val is_top: Boolean ,
+                val item_id: String,
+                val media_type: Int,
+                val share_url: String,
+                val title: String) {
 }

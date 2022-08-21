@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.UI.movieRank
 
 import android.content.Intent
 import android.util.Log
@@ -13,7 +13,6 @@ import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
-import com.qxy.douyinDemo.ui.activity.MainActivity
 
 class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, ActivityMovieRankBinding>() {
     val views = ArrayList<Fragment>()

@@ -1,6 +1,7 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.*
+import com.qxy.douyinDemo.bean.VideoBean.Data
 import com.qxy.douyinDemo.bean.VideoBean.Vbean
 import retrofit2.http.*
 
@@ -48,10 +49,11 @@ interface BackendService {
      */
     @GET("/video/list/")
     suspend fun getVadio(
+        @Header("access-token") access_token: String,
         @Query("open_id") open_id: String,
         @Query("cursor") cursor: String,
         @Query("count") count: String
-    ): ApiResult<Vbean>
+    ): ApiResult<Data>
 
     @POST("oauth/client_token/")
     @FormUrlEncoded

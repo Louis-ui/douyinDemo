@@ -24,4 +24,10 @@ object AppSetting {
     var context: Context? = null
 
     var CLIENT_TOKEN: String? = null
+
+    /**
+     * 自己加的
+     */
+    var ACCESS_TOKEN2 :String? =null
+    var ACCESS_TOKEN3 :String?=null
 }

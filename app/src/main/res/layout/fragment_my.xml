@@ -62,7 +62,7 @@
                                android:layout_width="wrap_content"
                                android:layout_height="40dp"
                                tools:text="太阳"
-                               android:textSize="20dp"
+                               android:textSize="20sp"
                                />
                            <TextView
                                android:id="@+id/my_text2"
@@ -84,6 +84,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
+                                    android:gravity="center"
                                     android:id="@+id/my_text3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
@@ -97,6 +98,7 @@
                                     android:text="获赞" />
 
                                 <TextView
+                                    android:gravity="center"
                                     android:id="@+id/my_text4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
@@ -110,6 +112,7 @@
                                     android:text="关注" />
 
                                 <TextView
+                                    android:gravity="center"
                                     android:id="@+id/my_text5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"

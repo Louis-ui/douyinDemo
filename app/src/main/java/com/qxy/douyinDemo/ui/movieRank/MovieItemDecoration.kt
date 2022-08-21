@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.UI.movieRank
 
 import android.content.Context
 import android.graphics.Canvas

@@ -8,10 +8,10 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.movieRank.MovieRankActivity">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            tools:ignore="MissingConstraints"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:background="@drawable/movie_rank_background">
@@ -53,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
-
     </LinearLayout>
 </layout>
 

@@ -22,7 +22,8 @@ class MyFragmentItem1Adapter : BaseRvAdapter<List,MyFragmentItemViewHolder>() {
         return MyFragmentItemViewHolder(binding)
     }
 
-    override fun handleData(holder: MyFragmentItemViewHolder, d: List, position: Int) {
+    override fun handleData(holder: MyFragmentItemViewHolder, d:List, position: Int) {
+        println(d.cover)
         Glide.with(mContext).load(d.cover).into(holder.viewDataBinding.item1Img1)
     }
 

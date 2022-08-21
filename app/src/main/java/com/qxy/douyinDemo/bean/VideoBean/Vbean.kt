@@ -1,4 +1,5 @@
 package com.qxy.douyinDemo.bean.VideoBean
 
-data class Vbean( val extra: Extra? , val data: Data? ) {
+data class Vbean( val data: Data,
+                  val extra: Extra) {
 }

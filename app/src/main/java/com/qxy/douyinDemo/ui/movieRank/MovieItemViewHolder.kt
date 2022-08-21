@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.ui.movieRank
+package com.qxy.douyinDemo.UI.movieRank
 
 import androidx.databinding.ViewDataBinding
 import com.qxy.douyinDemo.base.BaseRvAdapter

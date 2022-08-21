@@ -18,8 +18,6 @@ import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
-import com.qxy.douyinDemo.ui.movieRank.MovieRankActivity
-
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 
 //    private val mScope =
@@ -37,7 +35,7 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
 
     private val mScope =
-        "user_info"
+        "user_info,video.list,trial.whitelist"
 
     var douYinOpenApi: DouYinOpenApi? = null
 
@@ -54,6 +52,7 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
         douYinOpenApi = DouYinOpenApiFactory.create(this)
         sendAuth()
         mViewModel.loginResult.observe(this, Observer {
+            AppSetting.OPEN_ID=it.open_id
             Log.d("accessToken", "onCreate: $it.accessToken")
             Log.d("openId", "onCreate: $it.openId")
         })

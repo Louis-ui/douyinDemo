@@ -117,6 +117,8 @@ class ApiResultCall(
                     )) {
                         is ApiResult.Success -> {
                             AppSetting.ACCESS_TOKEN = result.data?.access_token
+                            AppSetting.ACCESS_TOKEN2 = result.data?.access_token
+                            AppSetting.ACCESS_TOKEN3 = result.data?.access_token
                             AppSetting.REFRESH_TOKEN =
                                 result.data?.refresh_token
                             Log.d(

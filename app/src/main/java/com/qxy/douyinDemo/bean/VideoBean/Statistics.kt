@@ -1,10 +1,10 @@
 package com.qxy.douyinDemo.bean.VideoBean
 
 class Statistics {
-     val forward_count = 0
-     val comment_count = 0
-     val digg_count = 0
-     val download_count = 0
-     val play_count = 0
-     val share_count = 0
+     var play_count = 0
+     var share_count = 0
+     var comment_count = 0
+     var digg_count = 0
+     var download_count = 0
+     var forward_count = 0
 }
