@@ -19,7 +19,7 @@ import com.qxy.douyinDemo.mvvm.viewModel.LoginViewModel
 
 class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLoginBinding>() {
 
-    private val mScope = "user_info"
+    private val mScope = "trial.whitelist,user_info,following.list,fans.list"
     var douYinOpenApi: DouYinOpenApi? = null
 
     override fun getContentViewId(): Int = R.layout.activity_login

@@ -22,8 +22,8 @@ class FollowViewModel(application: Application) : BaseViewModel<RepositoryImpl>(
 
     var realFollowList: LiveData<ArrayList<FollowItem>> = Transformations.map(followList) { follow ->
         val tempList = ArrayList<FollowItem>()
-        for(i in 1 until follow.data.list.size) {
-            val tempFollowItem = follow.data.list[i]
+        for(i in 1 until follow.list.size) {
+            val tempFollowItem = follow.list[i]
             tempList.add(
                 FollowItem(
                     Uri.parse(tempFollowItem.avatar),
@@ -41,8 +41,8 @@ class FollowViewModel(application: Application) : BaseViewModel<RepositoryImpl>(
 
     var realFansList: LiveData<ArrayList<FollowItem>> = Transformations.map(fansList) { fans ->
         val tempList = ArrayList<FollowItem>()
-        for(i in 1 until fans.data.list.size) {
-            val tempFollowItem = fans.data.list[i]
+        for(i in 1 until fans.list.size) {
+            val tempFollowItem = fans.list[i]
             tempList.add(
                 FollowItem(
                     Uri.parse(tempFollowItem.avatar),

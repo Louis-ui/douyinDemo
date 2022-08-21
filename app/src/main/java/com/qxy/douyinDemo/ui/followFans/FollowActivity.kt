@@ -31,11 +31,14 @@ class FollowActivity : BaseActivity<RepositoryImpl, FollowViewModel, ActivityFol
         binding.viewPager.adapter = FollowListPagerAdapter(supportFragmentManager, followViews)
         binding.viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))
         binding.tabLayout.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(binding.viewPager))
+        binding.btnBack2.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-
+            R.id.btn_back2 -> {
+                finish()
+            }
         }
     }
 
