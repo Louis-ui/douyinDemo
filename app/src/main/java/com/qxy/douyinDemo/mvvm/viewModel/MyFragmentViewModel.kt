@@ -6,18 +6,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.base.BaseViewModel
-import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.User
-import com.qxy.douyinDemo.bean.VideoBean.Data
-import com.qxy.douyinDemo.bean.VideoBean.Vbean
+import com.qxy.douyinDemo.bean.VideoMessage
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.network.ApiResult
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 class MyFragmentViewModel(application: Application) : BaseViewModel<RepositoryImpl>(application) {
     var loginResult = MutableLiveData<User>()
-    var videoResult = MutableLiveData<Data>()
+    var videoResult = MutableLiveData<VideoMessage>()
     fun ToMessage(assess_token: String,open_id : String): LiveData<User> {
         viewModelScope.launch {
 
@@ -40,7 +37,7 @@ class MyFragmentViewModel(application: Application) : BaseViewModel<RepositoryIm
         return loginResult
     }
 
-    fun ToVideo(access_token: String,oepn_id :String,cursor: String,count : String):LiveData<Data>
+    fun ToVideo(access_token: String,oepn_id :String,cursor: String,count : String):LiveData<VideoMessage>
     {
         viewModelScope.launch {
             when (val result = repository?.getVideo(access_token,oepn_id,cursor,count)) {

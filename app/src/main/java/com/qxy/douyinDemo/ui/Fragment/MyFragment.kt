@@ -1,14 +1,10 @@
 package com.qxy.douyinDemo.UI.Fragment
 
 import android.content.Intent
-import android.database.AbstractCursor
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
@@ -18,16 +14,12 @@ import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.base.BaseRvAdapter
 import com.qxy.douyinDemo.bean.User
-import com.qxy.douyinDemo.bean.VideoBean.List
-import com.qxy.douyinDemo.bean.VideoBean.Vbean
+import com.qxy.douyinDemo.bean.List
 import com.qxy.douyinDemo.databinding.FragmentMyBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MyFragmentViewModel
 import com.qxy.douyinDemo.UI.movieRank.MovieRankActivity
-import com.qxy.douyinDemo.bean.VideoBean.Data
-import com.qxy.douyinDemo.network.OkHttpHelper
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.qxy.douyinDemo.bean.VideoMessage
 import kotlin.random.Random
 
 class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBinding>() {
@@ -90,7 +82,7 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
     fun setVideoMessage(access_token: String,open_id: String,cursor:String,count:String)
     {
         binding.myRecyclerView.layoutManager=StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
-        mViewModel?.ToVideo(access_token,open_id,cursor,count)?.observe(this, Observer { t:Data->
+        mViewModel?.ToVideo(access_token,open_id,cursor,count)?.observe(this, Observer { t: VideoMessage ->
             Log.d("XXXX","6666666+${AppSetting.ACCESS_TOKEN}")
          var adapter:MyFragmentItem1Adapter= MyFragmentItem1Adapter()
             if(t.list!=null)

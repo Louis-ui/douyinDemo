@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.bean.VideoBean
+package com.qxy.douyinDemo.bean
 
 data class List(val cover: String,
                 val lvideo_id: String,

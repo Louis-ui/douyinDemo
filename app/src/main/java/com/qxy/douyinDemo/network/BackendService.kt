@@ -1,8 +1,7 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.*
-import com.qxy.douyinDemo.bean.VideoBean.Data
-import com.qxy.douyinDemo.bean.VideoBean.Vbean
+import com.qxy.douyinDemo.bean.VideoMessage
 import retrofit2.http.*
 
 interface BackendService {
@@ -53,7 +52,7 @@ interface BackendService {
         @Query("open_id") open_id: String,
         @Query("cursor") cursor: String,
         @Query("count") count: String
-    ): ApiResult<Data>
+    ): ApiResult<VideoMessage>
 
     @POST("oauth/client_token/")
     @FormUrlEncoded
