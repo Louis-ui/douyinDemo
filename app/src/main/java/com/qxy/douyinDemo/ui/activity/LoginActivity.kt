@@ -19,7 +19,8 @@ import com.qxy.douyinDemo.mvvm.viewModel.LoginViewModel
 
 class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLoginBinding>() {
 
-    private val mScope = "trial.whitelist,user_info,following.list,fans.list"
+    private val mScope =
+        "trial.whitelist,user_info,following.list,fans.list,login_id,renew_refresh_token"
     var douYinOpenApi: DouYinOpenApi? = null
 
     override fun getContentViewId(): Int = R.layout.activity_login
@@ -46,7 +47,7 @@ class LoginActivity : BaseActivity<RepositoryImpl, LoginViewModel, ActivityLogin
     }
 
     override fun onClick(p0: View?) {
-        when(p0?.id) {
+        when (p0?.id) {
             R.id.btn_login -> {
                 val authCode =
                     getSharedPreferences("douyin", Context.MODE_PRIVATE).getString(
