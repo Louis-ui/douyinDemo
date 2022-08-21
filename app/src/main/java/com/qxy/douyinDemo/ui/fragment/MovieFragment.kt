@@ -33,7 +33,8 @@ class MovieFragment(private val movieTypeCreate: Int) :
                 MovieItemDecoration(
                     requireActivity(),
                     LinearLayoutManager.VERTICAL,
-                    R.layout.item_top_decor_movie
+                    R.layout.item_top_decor_movie,
+                    mViewModel!!
                 )
             )
             this.adapter = adapter
