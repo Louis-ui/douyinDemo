@@ -1,6 +1,8 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.*
+import com.qxy.douyinDemo.bean.followBean.FansInfos
+import com.qxy.douyinDemo.bean.followBean.FollowInfos
 import com.qxy.douyinDemo.bean.videoBean.Vbean
 import retrofit2.http.*
 
@@ -66,5 +68,27 @@ interface BackendService {
         @Query("type") type: Int,
         @Query("version") version: Int?
     ): ApiResult<RankInfos>
+
+    /**
+     * 获取关注列表
+     */
+    @GET("following/list/")
+    suspend fun getFollowInfo(
+        @Header("access-token") client_token: String,
+        @Query("count") count: Int,
+        @Query("open_id") open_id: String?,
+        @Query("cursor") cursor: Int
+    ): ApiResult<FollowInfos>
+
+    /**
+     * 获取粉丝列表
+     */
+    @GET("fans/list/")
+    suspend fun getFansInfo(
+        @Header("access-token") client_token: String,
+        @Query("open_id") open_id: String?,
+        @Query("cursor") cursor: Int,
+        @Query("count") count: Int
+    ): ApiResult<FansInfos>
 }
 

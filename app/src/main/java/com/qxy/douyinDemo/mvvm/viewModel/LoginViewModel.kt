@@ -22,6 +22,7 @@ class LoginViewModel(application: Application) : BaseViewModel<RepositoryImpl>(a
             when (val result = repository?.getToken(code)) {
                 is ApiResult.Success -> {
                     loginResult.value = result.data!!
+                    AppSetting.OPEN_ID = loginResult.value!!.open_id
                 }
                 is ApiResult.Error.ServerError -> {}
                 is ApiResult.Error.Exception -> {}

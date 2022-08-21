@@ -18,6 +18,7 @@ import com.qxy.douyinDemo.databinding.FragmentMyBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MyFragmentViewModel
 import com.qxy.douyinDemo.ui.activity.MovieRankActivity
+import com.qxy.douyinDemo.ui.followFans.FollowActivity
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -34,6 +35,7 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
         binding.button1.setOnClickListener(this)
         binding.button2.setOnClickListener(this)
         binding.button3.setOnClickListener(this)
+        binding.btnToFollow.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -41,6 +43,9 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
             binding.button1 -> {}
             binding.button2 -> {
                 startActivity(Intent(context, MovieRankActivity::class.java))
+            }
+            binding.btnToFollow -> {
+                startActivity(Intent(context, FollowActivity::class.java))
             }
         }
     }
@@ -77,12 +82,12 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
 
     //进行AppBarLayout的滑动监听
     fun setBarLayoutListener() {
-        binding.myAppBarLayout.addOnOffsetChangedListener { appbar: AppBarLayout, i: Int ->
-            if (abs(i) < appbar.totalScrollRange) {
-                binding.toolbar.visibility = View.GONE
-            } else {
-                binding.toolbar.visibility = View.VISIBLE
-            }
-        }
+//        binding.myAppBarLayout.addOnOffsetChangedListener { appbar: AppBarLayout, i: Int ->
+//            if (abs(i) < appbar.totalScrollRange) {
+//                binding.toolbar.visibility = View.GONE
+//            } else {
+//                binding.toolbar.visibility = View.VISIBLE
+//            }
+//        }
     }
 }

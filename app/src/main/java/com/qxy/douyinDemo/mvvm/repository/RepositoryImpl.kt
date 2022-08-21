@@ -7,6 +7,8 @@ import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.User
 import com.qxy.douyinDemo.bean.videoBean.Vbean
 import com.qxy.douyinDemo.bean.RankInfos
+import com.qxy.douyinDemo.bean.followBean.FansInfos
+import com.qxy.douyinDemo.bean.followBean.FollowInfos
 import com.qxy.douyinDemo.network.API
 import com.qxy.douyinDemo.network.ApiResult
 
@@ -25,20 +27,21 @@ class RepositoryImpl : BaseModel() {
                 AppSetting.CLIENT_KEY
             )
         }
+
     /**
      * getUserMessage
      */
-    suspend fun getMessage(access_token : String,open_id : String) : ApiResult<User> =
-    request{
-        API.BACKEND_SERVICE.getUserMessage(access_token,open_id)
-    }
+    suspend fun getMessage(access_token: String, open_id: String): ApiResult<User> =
+        request {
+            API.BACKEND_SERVICE.getUserMessage(access_token, open_id)
+        }
 
     /**
      * getVideo
      */
-    suspend fun getVideo(oepn_id :String,cursor: String,count : String) :ApiResult<Vbean> =
+    suspend fun getVideo(oepn_id: String, cursor: String, count: String): ApiResult<Vbean> =
         request {
-            API.BACKEND_SERVICE.getVadio(oepn_id,cursor,count)
+            API.BACKEND_SERVICE.getVadio(oepn_id, cursor, count)
         }
 
     suspend fun getClientToken(): ApiResult<ClientOauthInfo> =
@@ -56,6 +59,36 @@ class RepositoryImpl : BaseModel() {
                 client_token,
                 type,
                 version
+            )
+        }
+
+    suspend fun getFollowInfo(
+        client_token: String,
+        count: Int,
+        open_id: String?,
+        cursor: Int
+    ): ApiResult<FollowInfos> =
+        request {
+            API.BACKEND_SERVICE.getFollowInfo(
+                client_token,
+                count,
+                open_id,
+                cursor
+            )
+        }
+
+    suspend fun getFansInfo(
+        client_token: String,
+        count: Int,
+        open_id: String?,
+        cursor: Int
+    ): ApiResult<FansInfos> =
+        request {
+            API.BACKEND_SERVICE.getFansInfo(
+                client_token,
+                open_id,
+                cursor,
+                count
             )
         }
 }

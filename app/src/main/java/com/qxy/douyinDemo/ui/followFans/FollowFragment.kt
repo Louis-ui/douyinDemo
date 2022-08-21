@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
+import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.followBean.FollowItem
 import com.qxy.douyinDemo.databinding.FragmentFollowBinding
@@ -27,8 +28,8 @@ class FollowFragment(private val followTypeCreate: Int) :
 
     override fun setListener() {
         val layoutManager = LinearLayoutManager(context)
-        val adapter = FollowItemAdapter(followItemList)
-        initData()
+        val adapter = FollowItemAdapter(followItemList, requireContext())
+        initData(adapter)
         binding.followList.apply {
             this.layoutManager = layoutManager
             when (followTypeCreate) {
@@ -62,31 +63,27 @@ class FollowFragment(private val followTypeCreate: Int) :
         }
     }
 
-    private fun initData() {
+    private fun initData(adapter: FollowItemAdapter) {
         when (followTypeCreate) {
             FollowItem.type.FOLLOW_TYPE -> {
-                for (i in 0..20) {
-                    followItemList.add(
-                        FollowItem(
-                            "username: $i", "country: $i",
-                            "province: $i", "city: $i",
-                            "关注",
-                            FollowItem.type.FOLLOW_TYPE
-                        )
-                    )
+                mViewModel?.getFollowList(20, AppSetting.OPEN_ID, 0)
+                mViewModel?.realFollowList?.observe(this) {
+                    for (i in 0 until it.size) {
+                        followItemList.add(it[i])
+                        Log.d("realMovieRank_data", "initData: ${it[i].username}")
+                    }
+                    adapter.notifyDataSetChanged()
                 }
             }
 
             FollowItem.type.FANS_TYPE -> {
-                for (i in 0..20) {
-                    followItemList.add(
-                        FollowItem(
-                            "username: $i", "country: $i",
-                            "province: $i", "city: $i",
-                            "粉丝",
-                            FollowItem.type.FANS_TYPE
-                        )
-                    )
+                mViewModel?.getFansList(20, AppSetting.OPEN_ID, 0)
+                mViewModel?.realFansList?.observe(this) {
+                    for (i in 0 until it.size) {
+                        followItemList.add(it[i])
+                        Log.d("realMovieRank_data", "initData: ${it[i].username}")
+                    }
+                    adapter.notifyDataSetChanged()
                 }
             }
         }
