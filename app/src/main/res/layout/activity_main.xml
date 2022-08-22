@@ -16,8 +16,8 @@
             android:name="com.qxy.douyinDemo.ui.fragment.MyFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="-3dp"
-            android:layout_above="@+id/main_layout" />
+            android:layout_above="@+id/main_layout"
+            android:layout_marginBottom="-3dp" />
 
         <LinearLayout
             android:id="@+id/main_layout"
@@ -26,21 +26,61 @@
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:foregroundGravity="center"
-                android:src="@drawable/main_img_select" />
+                android:layout_marginTop="5dp"
+                android:text="@string/bottom_main_1"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:text="@string/bottom_main_2"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/main_img2_select"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:text="@string/bottom_main_3"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:text="@string/bottom_main_4"
+                android:textSize="20dp" />
 
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:foregroundGravity="center"
-                android:padding="4dp"
-                android:src="@drawable/main_img2_select" />
+
+<!--            <ImageView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:foregroundGravity="center"-->
+<!--                android:src="@drawable/main_img_select" />-->
+
+
+<!--            <ImageView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:foregroundGravity="center"-->
+<!--                android:padding="4dp"-->
+<!--                android:src="@drawable/main_img2_select" />-->
         </LinearLayout>
     </RelativeLayout>
 </layout>

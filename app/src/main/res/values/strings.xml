@@ -24,4 +24,8 @@
     <string name="tv_play">电视剧</string>
     <string name="movie">电影</string>
     <string name="tv_show">综艺</string>
+    <string name="bottom_main_1">首页</string>
+    <string name="bottom_main_2">朋友</string>
+    <string name="bottom_main_3">消息</string>
+    <string name="bottom_main_4">我</string>
 </resources>
