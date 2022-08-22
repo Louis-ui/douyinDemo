@@ -1,4 +1,8 @@
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieFragment.kt
 package com.qxy.douyinDemo.UI.movieRank
+=======
+package com.qxy.douyinDemo.ui.fragment
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MovieFragment.kt
 
 import android.os.Bundle
 import android.util.Log
@@ -7,10 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.UI.movieRank.MovieItemDecoration
 import com.qxy.douyinDemo.base.BaseFragment
-import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
+import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemAdapter
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 
 class MovieFragment(private val movieTypeCreate: Int) :
     BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {
@@ -24,8 +30,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
 
     override fun setListener() {
         val layoutManager = LinearLayoutManager(context)
-//        val adapter = MovieItemAdapter(movieTypeCreate, movieItemList)
-        var adapter = MovieItemAdapter(movieItemList, movieTypeCreate, requireContext())
+        val adapter = MovieItemAdapter(movieItemList, movieTypeCreate, requireContext())
         initData(adapter)
         binding.moviesList.apply {
             this.layoutManager = layoutManager
@@ -33,7 +38,8 @@ class MovieFragment(private val movieTypeCreate: Int) :
                 MovieItemDecoration(
                     requireActivity(),
                     LinearLayoutManager.VERTICAL,
-                    R.layout.item_top_decor_movie
+                    R.layout.item_top_decor_movie,
+                    mViewModel!!
                 )
             )
             this.adapter = adapter
@@ -48,7 +54,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
     fun initData(adapter : MovieItemAdapter) {
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
-                mViewModel?.getMovieRank()
+                mViewModel?.getMovieRankFromBackEnd()
                 mViewModel?.realMovieRank?.observe(this) {
                     for (i in 0 until it.size) {
                         movieItemList.add(it[i])
@@ -56,16 +62,13 @@ class MovieFragment(private val movieTypeCreate: Int) :
                     }
                     adapter.notifyDataSetChanged()
                 }
-//                mViewModel?.movieRank?.observe(this) {
-//                    Log.d("movieRank_data", "initData: ${it.toString()}")
-//                }
             }
 
             MovieItem.type.WEB_MOVIE_TYPE -> {
                 for (i in 0..20) {
                     movieItemList.add(
                         MovieItem(
-                            null, "title: $i","subtitle1: $i",
+                            null, "title: $i", "subtitle1: $i",
                             "subtitle2: $i", "subtitle3: $i",
                             MovieItem.type.WEB_MOVIE_TYPE
                         )

@@ -2,15 +2,13 @@ package com.qxy.douyinDemo.mvvm.viewModel
 
 import android.app.Application
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseViewModel
-import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
-import com.qxy.douyinDemo.bean.RankInfo
+import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.mvvm.database.MovieDataBase
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
@@ -40,7 +38,7 @@ class MovieRankViewModel(application: Application) : BaseViewModel<RepositoryImp
         tempList
     }
 
-    fun getMovieRank(): LiveData<RankInfos> {
+    fun getMovieRankFromBackEnd(): LiveData<RankInfos> {
         viewModelScope.launch {
             when (val result =
                 AppSetting.CLIENT_TOKEN?.let { repository?.getRankInfo(1, null, it) }) {

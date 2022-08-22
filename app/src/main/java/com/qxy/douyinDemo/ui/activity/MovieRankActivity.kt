@@ -1,6 +1,9 @@
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieRankActivity.kt
 package com.qxy.douyinDemo.UI.movieRank
+=======
+package com.qxy.douyinDemo.ui.activity
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/activity/MovieRankActivity.kt
 
-import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,15 +12,19 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
-import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
+import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieRankActivity.kt
+=======
+import com.qxy.douyinDemo.ui.fragment.MovieFragment
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/activity/MovieRankActivity.kt
 
 class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, ActivityMovieRankBinding>() {
     val views = ArrayList<Fragment>()
 
-    override fun getContextViewId(): Int {
+    override fun getContentViewId(): Int {
         return R.layout.activity_movie_rank
     }
 

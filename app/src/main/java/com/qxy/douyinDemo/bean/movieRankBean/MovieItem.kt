@@ -1,6 +1,5 @@
-package com.qxy.douyinDemo.bean.MovieRankBean
+package com.qxy.douyinDemo.bean.movieRankBean
 
-import android.graphics.Bitmap
 import android.net.Uri
 
 class MovieItem(
@@ -9,11 +8,9 @@ class MovieItem(
     val movieSubtitle1: String,
     val movieSubtitle2: String,
     val movieSubtitle3: String,
-    val movieType: Int
-) {
+    val movieType: Int) {
     object type {
-        val CINEMA_MOVIE_TYPE = 0
-        val WEB_MOVIE_TYPE = 1
+        const val CINEMA_MOVIE_TYPE = 0
+        const val WEB_MOVIE_TYPE = 1
     }
-
 }

@@ -1,23 +1,16 @@
 package com.qxy.douyinDemo.ui.activity
 
-import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.Observer
-import com.bytedance.sdk.open.aweme.authorize.model.Authorization
-import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory
-import com.bytedance.sdk.open.douyin.DouYinOpenConfig
-import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
-import com.gyf.immersionbar.ImmersionBar
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
+<<<<<<< HEAD
+=======
+
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 
 //    private val mScope =
@@ -34,16 +27,21 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "data.external.billboard_stars,data.external.billboard_sport,trial.whitelist" +
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
 
+<<<<<<< HEAD
     private val mScope =
         "user_info,video.list,trial.whitelist"
 
     var douYinOpenApi: DouYinOpenApi? = null
 
     override fun getContextViewId(): Int {
+=======
+    override fun getContentViewId(): Int {
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
         return R.layout.activity_main
     }
 
     override fun processLogic() {
+<<<<<<< HEAD
         AppSetting.context = this
         ImmersionBar.with(this)
             .statusBarDarkFont(true)
@@ -59,37 +57,19 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
         mViewModel.clientOauthResult.observe(this) {
             Log.d("client_token", "${it.access_token}")
         }
+=======
+        Log.d("MainActivity", "processLogic called!")
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
     }
 
     override fun setListener() {
-        binding.btnGetAccessToken.setOnClickListener(this)
-//        binding.btnGoMovieRankList.setOnClickListener(this)
+
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.btn_getAccessToken -> {
-                val authCode =
-                    getSharedPreferences("douyin", Context.MODE_PRIVATE).getString(
-                        "authCode",
-                        null
-                    )
-                Log.d("authCode", "onCreate: $authCode")
-                authCode?.let {
-                    mViewModel.toLogin(it)
-                    mViewModel.getClientToken()
-                }
-            }
-        }
-    }
 
-    private fun sendAuth(): Boolean? {
-        val request = Authorization.Request()
-        request.scope = mScope // 用户授权时必选权限
-        request.optionalScope0 = "mobile" // 用户授权时可选权限（默认选择）
-        //        request.optionalScope0 = mOptionalScope1;    // 用户授权时可选权限（默认不选）
-        request.state = "ww" // 用于保持请求和回调的状态，授权请求后原样带回给第三方。
-        return douYinOpenApi?.authorize(request) // 优先使用抖音app进行授权，如果抖音app因版本或者其他原因无法授权，则使用wap页授权
+        }
     }
 
 }

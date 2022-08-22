@@ -3,46 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="mViewModel"
+            type="com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:paddingStart="10dp"
-        android:paddingEnd="10dp">
-
+        android:paddingEnd="10dp"
+        android:orientation="vertical">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/movie_titleTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/movie_tab_title1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="本周榜 | 更新于7月30日 12:00"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/movie_tab_title2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/movie_tab_title2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="榜单规则"
-                android:textSize="14sp"
+                android:text="@string/rank_role"
+                android:textSize="16sp"
+                android:textColor="@color/red"
                 app:layout_constraintRight_toRightOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

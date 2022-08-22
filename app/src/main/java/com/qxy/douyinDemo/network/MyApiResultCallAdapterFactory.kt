@@ -48,16 +48,35 @@ class ApiResultCall(
      * KotlinExtensions#await()中会调用enqueue()方法
      */
     override fun enqueue(callback: Callback<Any>) {
-        //delegate为OkHttpCall
+        // delegate为OkHttpCall
         delegate.enqueue(object : Callback<Any> {
-            //网络请求成功返回，会回调该方法（无论status code是不是200）
+            // 网络请求成功返回，会回调该方法（无论status code是不是200）
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                //无论请求响应成功还是失败都回调Response.success
+                // 无论请求响应成功还是失败都回调Response.success
                 if (response.isSuccessful) {
                     val body = response.body()
                     if (body is ApiResult.Success<*>) {
                         if (body.extra.error_code == "2190008") {
                             refreshAccessToken()
+                            callback.onResponse(
+                                this@ApiResultCall,
+                                Response.success(
+                                    ApiResult.Error.ServerError<Nothing>(
+                                        2190008,
+                                        "token 过期"
+                                    )
+                                )
+                            )
+                        } else if (body.extra.error_code == "2190004"){
+                            callback.onResponse(
+                                this@ApiResultCall,
+                                Response.success(
+                                    ApiResult.Error.ServerError<Nothing>(
+                                        2190004,
+                                        "没权限"
+                                    )
+                                )
+                            )
                         } else {
                             callback.onResponse(this@ApiResultCall, Response.success(body))
                         }

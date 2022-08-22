@@ -18,13 +18,21 @@
         android:theme="@style/Theme.DouyinDemo"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".ui.activity.MainActivity"
+=======
+            android:name=".ui.activity.LoginActivity"
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="true">
         </activity>
 
         <activity
@@ -34,10 +42,15 @@
             android:taskAffinity="com.qxy.douyinDemo" />
 
         <activity
+<<<<<<< HEAD
             android:name=".UI.movieRank.MovieRankActivity"
             android:exported="true">
         </activity>
 
+=======
+            android:name=".ui.activity.MovieRankActivity"
+            android:exported="true" />
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
     </application>
 
 </manifest>

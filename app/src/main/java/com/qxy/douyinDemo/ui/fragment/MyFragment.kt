@@ -1,4 +1,4 @@
-package com.qxy.douyinDemo.UI.Fragment
+package com.qxy.douyinDemo.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,18 +14,26 @@ import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.base.BaseRvAdapter
 import com.qxy.douyinDemo.bean.User
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/Fragment/MyFragment.kt
 import com.qxy.douyinDemo.bean.List
 import com.qxy.douyinDemo.databinding.FragmentMyBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MyFragmentViewModel
 import com.qxy.douyinDemo.UI.movieRank.MovieRankActivity
 import com.qxy.douyinDemo.bean.VideoMessage
+=======
+import com.qxy.douyinDemo.bean.videoBean.List
+import com.qxy.douyinDemo.bean.videoBean.Vbean
+import com.qxy.douyinDemo.databinding.FragmentMyBinding
+import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
+import com.qxy.douyinDemo.mvvm.viewModel.MyFragmentViewModel
+import com.qxy.douyinDemo.ui.activity.MovieRankActivity
+import kotlin.math.abs
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MyFragment.kt
 import kotlin.random.Random
 
 class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBinding>() {
-    override fun getContentViewId(): Int {
-        return R.layout.fragment_my
-    }
+    override fun getContentViewId() = R.layout.fragment_my
 
     override fun processLogic(savedInstanceState: Bundle?) {
         //通过随机数来设置点赞数
@@ -38,7 +46,6 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
         binding.button1.setOnClickListener(this)
         binding.button2.setOnClickListener(this)
         binding.button3.setOnClickListener(this)
-
     }
 
     override fun onClick(p0: View?) {
@@ -62,15 +69,21 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
             }
         }
     }
+
     //通过随机数来设置点赞数
-    fun setLike(){
-        binding.myText3.text=Random.nextInt(6,60).toString();
-        binding.myText4.text=Random.nextInt(6,60).toString();
-        binding.myText5.text=Random.nextInt(6,60).toString();
+    fun setLike() {
+        binding.myText3.text = Random.nextInt(6,60).toString()
+        binding.myText4.text = Random.nextInt(6,60).toString()
+        binding.myText5.text = Random.nextInt(6,60).toString()
     }
+
     //进行个人资料的设置
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/Fragment/MyFragment.kt
     fun setUserMessage(access_token : String,open_id : String)
     {
+=======
+    fun setUserMessage(access_token: String, open_id: String) {
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MyFragment.kt
         mViewModel?.ToMessage(access_token,open_id)?.observe(this, Observer { t : User->
             Log.d("XXXX","XXXXXXX")
             Glide.with(context).load(t.avatar).into(binding.MyImag)
@@ -78,13 +91,19 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
             binding.toolbarText.text=t.nickname
         })
     }
+
     //进行个人视频的数据获取
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/Fragment/MyFragment.kt
     fun setVideoMessage(access_token: String,open_id: String,cursor:String,count:String)
     {
+=======
+    fun setVideoMessage(open_id: String, cursor: String, count: String) {
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MyFragment.kt
         binding.myRecyclerView.layoutManager=StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
         mViewModel?.ToVideo(access_token,open_id,cursor,count)?.observe(this, Observer { t: VideoMessage ->
             Log.d("XXXX","6666666+${AppSetting.ACCESS_TOKEN}")
          var adapter:MyFragmentItem1Adapter= MyFragmentItem1Adapter()
+<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/Fragment/MyFragment.kt
             if(t.list!=null)
             {
                 Log.d("XXXX","6666666+${t.list.size}")
@@ -98,22 +117,25 @@ class MyFragment : BaseFragment<RepositoryImpl,MyFragmentViewModel,FragmentMyBin
                 binding.myRecyclerView.adapter=adapter
             }
 
+=======
+            t.data?.list?.let { adapter.loadMore(it) }
+            adapter.setOnItemClickListener1(object :BaseRvAdapter.OnItemClickListener<List>{
+                override fun onItemClick(data: List, pos: Int) {
+                    //在这里设置作品点击后的跳转界面
+                }
+            })
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MyFragment.kt
         })
     }
+
     //进行AppBarLayout的滑动监听
-    fun setBarLayoutListener()
-    {
-        binding.myAppBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener({
-                appbar:AppBarLayout,i:Int->
-            if(Math.abs(i)<appbar.totalScrollRange)
-            {
-                binding.toolbar.visibility=View.GONE
-            }
-            else{
-                binding.toolbar.visibility=View.VISIBLE
+    fun setBarLayoutListener() {
+        binding.myAppBarLayout.addOnOffsetChangedListener { appbar: AppBarLayout, i: Int ->
+            if (abs(i) < appbar.totalScrollRange) {
+                binding.toolbar.visibility = View.GONE
+            } else {
+                binding.toolbar.visibility = View.VISIBLE
             }
         }
-        ))
     }
-
 }

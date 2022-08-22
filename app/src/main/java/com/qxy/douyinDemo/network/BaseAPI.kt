@@ -18,7 +18,6 @@ object BaseAPI {
             .build()
     }
 
-
     private val backendAPIRetrofit: Retrofit by lazy {
         getRetrofit(
             AppSetting.BACKEND_BASE_URL,

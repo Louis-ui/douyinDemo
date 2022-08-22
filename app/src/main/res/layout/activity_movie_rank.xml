@@ -8,12 +8,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent">
+=======
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MovieRankActivity">
+>>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 
         <androidx.constraintlayout.widget.ConstraintLayout
             tools:ignore="MissingConstraints"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             android:background="@drawable/movie_rank_background">
 
             <Button
@@ -41,11 +46,13 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/cinema_movie" />
+                android:text="@string/cinema_movie"
+                android:textStyle="bold"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/web_movie" />
+                android:text="@string/web_movie"
+                android:textStyle="bold"/>
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager.widget.ViewPager
