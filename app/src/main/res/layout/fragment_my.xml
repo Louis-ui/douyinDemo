@@ -74,6 +74,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/my_background">
+                            <Button
+                                android:id="@+id/btn_to_follow"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:background="#00000000"/>
 
                             <LinearLayout
                                 android:id="@+id/R2_layout"
@@ -82,13 +87,13 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:gravity="center"
                                     android:id="@+id/my_text3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"/>
+                                    android:gravity="center"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -97,13 +102,13 @@
                                     android:text="@string/user_like_count" />
 
                                 <TextView
-                                    android:gravity="center"
                                     android:id="@+id/my_text4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"/>
+                                    android:gravity="center"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -112,13 +117,13 @@
                                     android:text="@string/user_sub_count" />
 
                                 <TextView
-                                    android:gravity="center"
                                     android:id="@+id/my_text5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold"
-                                    android:textSize="18dp"/>
+                                    android:gravity="center"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -126,11 +131,6 @@
                                     android:gravity="center"
                                     android:text="@string/user_fans_count" />
 
-                                <Button
-                                    android:id="@+id/btn_to_follow"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/my_follow" />
                             </LinearLayout>
 
                             <RelativeLayout

@@ -109,12 +109,12 @@ class MyFragment : BaseFragment<RepositoryImpl, MyFragmentViewModel, FragmentMyB
 
     //进行AppBarLayout的滑动监听
     fun setBarLayoutListener() {
-//        binding.myAppBarLayout.addOnOffsetChangedListener { appbar: AppBarLayout, i: Int ->
-//            if (abs(i) < appbar.totalScrollRange) {
-//                binding.toolbar.visibility = View.GONE
-//            } else {
-//                binding.toolbar.visibility = View.VISIBLE
-//            }
-//        }
+        binding.myAppBarLayout.addOnOffsetChangedListener { appbar: AppBarLayout, i: Int ->
+            if (abs(i) < appbar.totalScrollRange) {
+                binding.toolbar.visibility = View.GONE
+            } else {
+                binding.toolbar.visibility = View.VISIBLE
+            }
+        }
     }
 }
