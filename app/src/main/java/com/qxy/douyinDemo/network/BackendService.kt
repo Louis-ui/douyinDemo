@@ -1,11 +1,7 @@
 package com.qxy.douyinDemo.network
 
 import com.qxy.douyinDemo.bean.*
-<<<<<<< HEAD
 import com.qxy.douyinDemo.bean.VideoMessage
-=======
-import com.qxy.douyinDemo.bean.videoBean.Vbean
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 import retrofit2.http.*
 
 interface BackendService {

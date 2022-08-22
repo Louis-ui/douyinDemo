@@ -1,22 +1,18 @@
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieFragment.kt
-package com.qxy.douyinDemo.UI.movieRank
-=======
+
 package com.qxy.douyinDemo.ui.fragment
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/fragment/MovieFragment.kt
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
-import com.qxy.douyinDemo.UI.movieRank.MovieItemDecoration
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
 import com.qxy.douyinDemo.ui.listAdapter.MovieItemAdapter
-import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 
 class MovieFragment(private val movieTypeCreate: Int) :
     BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {

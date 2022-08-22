@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieRankActivity.kt
-package com.qxy.douyinDemo.UI.movieRank
-=======
 package com.qxy.douyinDemo.ui.activity
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/activity/MovieRankActivity.kt
 
 import android.util.Log
 import android.view.View
@@ -16,10 +12,7 @@ import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.ActivityMovieRankBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieRankActivity.kt
-=======
 import com.qxy.douyinDemo.ui.fragment.MovieFragment
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/activity/MovieRankActivity.kt
 
 class MovieRankActivity: BaseActivity<RepositoryImpl, MovieRankViewModel, ActivityMovieRankBinding>() {
     val views = ArrayList<Fragment>()

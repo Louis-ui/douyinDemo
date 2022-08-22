@@ -31,49 +31,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-<<<<<<< HEAD
-                   <RelativeLayout
-                       android:layout_marginTop="80dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
-                       <androidx.cardview.widget.CardView
-                           android:id="@+id/my_card1"
-                           android:layout_marginLeft="20dp"
-                           android:layout_marginBottom="20dp"
-                           android:layout_width="70dp"
-                           android:layout_height="70dp"
-                           app:cardCornerRadius="90dp">
-                           <ImageView
-                               android:id="@+id/My_imag"
-                               android:layout_width="70dp"
-                               android:layout_height="70dp"
-                               android:background="#D51010" />
-                       </androidx.cardview.widget.CardView>
-
-                       <LinearLayout
-                           android:layout_marginLeft="20dp"
-                           android:layout_toRightOf="@+id/my_card1"
-                           android:layout_width="wrap_content"
-                           android:layout_height="70dp"
-                           android:orientation="vertical">
-                           <TextView
-                               android:id="@+id/my_text1"
-                               android:gravity="center"
-                               android:layout_width="wrap_content"
-                               android:layout_height="40dp"
-                               tools:text="太阳"
-                               android:textSize="20sp"
-                               />
-                           <TextView
-                               android:id="@+id/my_text2"
-                               android:text="抖音号:706948033"
-                               android:gravity="center"
-                               android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"/>
-                       </LinearLayout>
-                   </RelativeLayout>
-=======
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
                         <RelativeLayout
                             android:layout_marginTop="80dp"
                             android:layout_width="match_parent"
@@ -283,48 +240,6 @@
                                                 android:textSize="12dp" />
                                         </LinearLayout>
                                     </LinearLayout>
-
-<!--                                    <LinearLayout-->
-<!--                                        android:layout_width="wrap_content"-->
-<!--                                        android:layout_height="match_parent"-->
-<!--                                        android:orientation="horizontal">-->
-<!--                                        <androidx.cardview.widget.CardView-->
-<!--                                            android:layout_width="40dp"-->
-<!--                                            android:layout_height="40dp"-->
-<!--                                            android:layout_marginStart="20dp"-->
-<!--                                            app:cardCornerRadius="10dp"-->
-<!--                                            app:cardElevation="10dp">-->
-<!--                                            <ImageView-->
-<!--                                                android:layout_width="match_parent"-->
-<!--                                                android:layout_height="match_parent"-->
-<!--                                                android:padding="6dp"-->
-<!--                                                android:src="@mipmap/my_img2"-->
-<!--                                                android:background="#1B1A1A"/>-->
-<!--                                        </androidx.cardview.widget.CardView>-->
-
-<!--                                        <LinearLayout-->
-<!--                                            android:layout_width="wrap_content"-->
-<!--                                            android:layout_height="match_parent"-->
-<!--                                            android:orientation="vertical">-->
-
-<!--                                            <TextView-->
-<!--                                                android:layout_width="wrap_content"-->
-<!--                                                android:layout_height="20dp"-->
-<!--                                                android:layout_marginStart="4dp"-->
-<!--                                                android:gravity="center"-->
-<!--                                                android:text="我的音乐"-->
-<!--                                                android:textColor="#151515"-->
-<!--                                                android:textSize="14dp" />-->
-
-<!--                                            <TextView-->
-<!--                                                android:layout_width="wrap_content"-->
-<!--                                                android:layout_height="20dp"-->
-<!--                                                android:layout_marginStart="4dp"-->
-<!--                                                android:text="已收藏0首"-->
-<!--                                                android:textSize="12dp" />-->
-<!--                                        </LinearLayout>-->
-<!--                                    </LinearLayout>-->
-
                                     <LinearLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"

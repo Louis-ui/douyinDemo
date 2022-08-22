@@ -2,15 +2,12 @@ package com.qxy.douyinDemo.ui.activity
 
 import android.util.Log
 import android.view.View
+import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
-<<<<<<< HEAD
-=======
-
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 
 //    private val mScope =
@@ -27,39 +24,18 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "data.external.billboard_stars,data.external.billboard_sport,trial.whitelist" +
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
 
-<<<<<<< HEAD
     private val mScope =
         "user_info,video.list,trial.whitelist"
 
     var douYinOpenApi: DouYinOpenApi? = null
 
-    override fun getContextViewId(): Int {
-=======
+
     override fun getContentViewId(): Int {
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
         return R.layout.activity_main
     }
 
     override fun processLogic() {
-<<<<<<< HEAD
-        AppSetting.context = this
-        ImmersionBar.with(this)
-            .statusBarDarkFont(true)
-            .init()
-        DouYinOpenApiFactory.init(DouYinOpenConfig(AppSetting.CLIENT_KEY))
-        douYinOpenApi = DouYinOpenApiFactory.create(this)
-        sendAuth()
-        mViewModel.loginResult.observe(this, Observer {
-            AppSetting.OPEN_ID=it.open_id
-            Log.d("accessToken", "onCreate: $it.accessToken")
-            Log.d("openId", "onCreate: $it.openId")
-        })
-        mViewModel.clientOauthResult.observe(this) {
-            Log.d("client_token", "${it.access_token}")
-        }
-=======
         Log.d("MainActivity", "processLogic called!")
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
     }
 
     override fun setListener() {

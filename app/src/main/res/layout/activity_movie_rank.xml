@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
     </data>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="match_parent">
-=======
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".ui.activity.MovieRankActivity">
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            tools:ignore="MissingConstraints"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@drawable/movie_rank_background">
+            android:background="@drawable/movie_rank_background"
+            tools:ignore="MissingConstraints">
 
             <Button
                 android:id="@+id/btn_back"
@@ -43,16 +41,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabSelectedTextColor="@color/black">
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/cinema_movie"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/web_movie"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager.widget.ViewPager

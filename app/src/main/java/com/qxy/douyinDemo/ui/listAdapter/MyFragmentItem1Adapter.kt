@@ -6,11 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseRvAdapter
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/ListAdapter/MyFragmentItem1Adapter.kt
 import com.qxy.douyinDemo.bean.List
-=======
-import com.qxy.douyinDemo.bean.videoBean.List
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/listAdapter/MyFragmentItem1Adapter.kt
 import com.qxy.douyinDemo.databinding.MyListItem1Binding
 import com.qxy.douyinDemo.ui.listAdapter.MyFragmentItemViewHolder
 

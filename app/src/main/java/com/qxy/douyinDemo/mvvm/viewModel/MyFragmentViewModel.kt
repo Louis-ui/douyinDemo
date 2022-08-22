@@ -7,11 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.base.BaseViewModel
 import com.qxy.douyinDemo.bean.User
-<<<<<<< HEAD
 import com.qxy.douyinDemo.bean.VideoMessage
-=======
-import com.qxy.douyinDemo.bean.videoBean.Vbean
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.network.ApiResult
 import kotlinx.coroutines.launch

@@ -4,13 +4,14 @@ import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.Serializable
+import kotlin.collections.List
 
 class RankInfos(
     val active_time: String,
     val description: String,
     val error_code: String,
     var list: List<RankInfo>
-) : Serializable {
+) : java.io.Serializable {
     override fun toString(): String {
         return "RankInfos(active_time='$active_time', description='$description', error_code='$error_code', items=$list)"
     }

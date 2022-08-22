@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieItemAdapter.kt
-package com.qxy.douyinDemo.UI.movieRank
-=======
 package com.qxy.douyinDemo.ui.listAdapter
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/listAdapter/MovieItemAdapter.kt
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,11 +10,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
-<<<<<<< HEAD:app/src/main/java/com/qxy/douyinDemo/ui/movieRank/MovieItemAdapter.kt
-import com.qxy.douyinDemo.bean.MovieRankBean.MovieItem
-=======
 import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
->>>>>>> 454a94d8e00ec4cafea05ca1629341a197f30c26:app/src/main/java/com/qxy/douyinDemo/ui/listAdapter/MovieItemAdapter.kt
 
 class MovieItemAdapter(
     private val movieItemList: List<MovieItem>,
