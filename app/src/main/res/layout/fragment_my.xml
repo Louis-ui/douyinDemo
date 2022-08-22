@@ -86,7 +86,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="18dp"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -99,7 +100,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="18dp"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -112,7 +114,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="20dp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:textSize="18dp"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -129,13 +132,14 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"/>
+
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_marginStart="20dp"
                                     android:gravity="center|left"
                                     android:text="@string/user_bio"
-                                    android:textSize="12dp"/>
+                                    android:textSize="14dp" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -143,8 +147,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_below="@+id/R2_layout_text1"
-                                android:orientation="horizontal">
-                            </LinearLayout>
+                                android:orientation="horizontal"></LinearLayout>
 
                             <HorizontalScrollView
                                 android:id="@+id/R2_layout_Scroll"
@@ -155,44 +158,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal">
-
-                                    <LinearLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="match_parent"
-                                        android:orientation="horizontal">
-                                        <androidx.cardview.widget.CardView
-                                            android:layout_width="40dp"
-                                            android:layout_height="40dp"
-                                            android:layout_marginStart="20dp"
-                                            app:cardCornerRadius="10dp"
-                                            app:cardElevation="10dp">
-                                            <ImageView
-                                                android:padding="8dp"
-                                                android:src="@mipmap/my_img1"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:background="#1B1A1A" />
-                                        </androidx.cardview.widget.CardView>
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical">
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="20dp"
-                                                android:layout_marginStart="4dp"
-                                                android:gravity="center"
-                                                android:text="@string/douyin_store"
-                                                android:textColor="#151515"
-                                                android:textSize="13dp" />
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="20dp"
-                                                android:layout_marginStart="4dp"
-                                                android:text="@string/douyin_store_intro"
-                                                android:textSize="10dp" />
-                                        </LinearLayout>
-                                    </LinearLayout>
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -222,18 +187,97 @@
                                                 android:layout_height="20dp"
                                                 android:layout_marginStart="4dp"
                                                 android:gravity="center"
-                                                android:text="@string/douyin_store"
+                                                android:text="我的音乐"
                                                 android:textColor="#151515"
-                                                android:textSize="13dp" />
+                                                android:textSize="14dp" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="20dp"
                                                 android:layout_marginStart="4dp"
-                                                android:text="@string/douyin_store_intro"
-                                                android:textSize="10dp" />
+                                                android:text="已收藏0首"
+                                                android:textSize="12dp" />
                                         </LinearLayout>
                                     </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal">
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginStart="20dp"
+                                            app:cardCornerRadius="10dp"
+                                            app:cardElevation="10dp">
+                                            <ImageView
+                                                android:padding="8dp"
+                                                android:src="@mipmap/my_img1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:background="#1B1A1A" />
+                                        </androidx.cardview.widget.CardView>
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginStart="4dp"
+                                                android:gravity="center"
+                                                android:text="@string/douyin_store"
+                                                android:textColor="#151515"
+                                                android:textSize="14dp" />
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="20dp"
+                                                android:layout_marginStart="4dp"
+                                                android:text="@string/douyin_store_intro"
+                                                android:textSize="12dp" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+<!--                                    <LinearLayout-->
+<!--                                        android:layout_width="wrap_content"-->
+<!--                                        android:layout_height="match_parent"-->
+<!--                                        android:orientation="horizontal">-->
+<!--                                        <androidx.cardview.widget.CardView-->
+<!--                                            android:layout_width="40dp"-->
+<!--                                            android:layout_height="40dp"-->
+<!--                                            android:layout_marginStart="20dp"-->
+<!--                                            app:cardCornerRadius="10dp"-->
+<!--                                            app:cardElevation="10dp">-->
+<!--                                            <ImageView-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="match_parent"-->
+<!--                                                android:padding="6dp"-->
+<!--                                                android:src="@mipmap/my_img2"-->
+<!--                                                android:background="#1B1A1A"/>-->
+<!--                                        </androidx.cardview.widget.CardView>-->
+
+<!--                                        <LinearLayout-->
+<!--                                            android:layout_width="wrap_content"-->
+<!--                                            android:layout_height="match_parent"-->
+<!--                                            android:orientation="vertical">-->
+
+<!--                                            <TextView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="20dp"-->
+<!--                                                android:layout_marginStart="4dp"-->
+<!--                                                android:gravity="center"-->
+<!--                                                android:text="我的音乐"-->
+<!--                                                android:textColor="#151515"-->
+<!--                                                android:textSize="14dp" />-->
+
+<!--                                            <TextView-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="20dp"-->
+<!--                                                android:layout_marginStart="4dp"-->
+<!--                                                android:text="已收藏0首"-->
+<!--                                                android:textSize="12dp" />-->
+<!--                                        </LinearLayout>-->
+<!--                                    </LinearLayout>-->
 
                                     <LinearLayout
                                         android:layout_width="wrap_content"
@@ -261,16 +305,16 @@
                                                 android:layout_height="20dp"
                                                 android:layout_marginStart="4dp"
                                                 android:gravity="center"
-                                                android:text="@string/douyin_store"
+                                                android:text="我的小程序"
                                                 android:textColor="#151515"
-                                                android:textSize="13dp" />
+                                                android:textSize="14dp" />
 
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="20dp"
                                                 android:layout_marginStart="4dp"
-                                                android:text="@string/douyin_store_intro"
-                                                android:textSize="10dp" />
+                                                android:text="最近使用"
+                                                android:textSize="12dp" />
                                         </LinearLayout>
                                     </LinearLayout>
 
