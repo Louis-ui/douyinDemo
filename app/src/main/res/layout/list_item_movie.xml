@@ -58,21 +58,21 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/movie_subtitle1"
                     android:textColor="@color/gray"
-                    android:textSize="11sp" />
+                    android:textSize="14sp" />
                 <TextView
                     android:id="@+id/movie_subtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/movie_subtitle2"
                     android:textColor="@color/gray"
-                    android:textSize="11sp" />
+                    android:textSize="14sp" />
                 <TextView
                     android:id="@+id/movie_subtitle3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/movie_subtitle3"
                     android:textColor="@color/gray"
-                    android:textSize="11sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,7 +90,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/buy_ticket" />
+                    android:background="@color/red"
+                    android:text="@string/buy_ticket"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
