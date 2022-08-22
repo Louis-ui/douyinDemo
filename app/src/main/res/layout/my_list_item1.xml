@@ -7,15 +7,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="220dp">
     <ImageView
-        android:background="@drawable/ic_my_back"
+        android:background="#0C0C0C"
         android:id="@+id/item1_img1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
@@ -26,11 +26,11 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:src="@mipmap/my_item_play"
                 android:id="@+id/item1_img2"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="6dp"
+                android:src="@mipmap/my_item_play" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

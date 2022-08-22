@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseRvAdapter
-import com.qxy.douyinDemo.bean.videoBean.List
+import com.qxy.douyinDemo.bean.List
 import com.qxy.douyinDemo.databinding.MyListItem1Binding
 import com.qxy.douyinDemo.ui.listAdapter.MyFragmentItemViewHolder
 
@@ -22,6 +22,7 @@ class MyFragmentItem1Adapter : BaseRvAdapter<List, MyFragmentItemViewHolder>() {
     }
 
     override fun handleData(holder: MyFragmentItemViewHolder, d: List, position: Int) {
+        println(d.cover)
         Glide.with(mContext).load(d.cover).into(holder.viewDataBinding.item1Img1)
     }
 }

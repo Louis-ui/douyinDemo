@@ -5,10 +5,10 @@ import com.qxy.douyinDemo.base.BaseModel
 import com.qxy.douyinDemo.bean.ClientOauthInfo
 import com.qxy.douyinDemo.bean.LoginInfo
 import com.qxy.douyinDemo.bean.User
-import com.qxy.douyinDemo.bean.videoBean.Vbean
 import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.bean.followBean.FansInfos
 import com.qxy.douyinDemo.bean.followBean.FollowInfos
+import com.qxy.douyinDemo.bean.VideoMessage
 import com.qxy.douyinDemo.network.API
 import com.qxy.douyinDemo.network.ApiResult
 
@@ -39,9 +39,9 @@ class RepositoryImpl : BaseModel() {
     /**
      * getVideo
      */
-    suspend fun getVideo(oepn_id: String, cursor: String, count: String): ApiResult<Vbean> =
+    suspend fun getVideo(access_token: String,oepn_id :String,cursor: String,count : String) :ApiResult<VideoMessage> =
         request {
-            API.BACKEND_SERVICE.getVadio(oepn_id, cursor, count)
+            API.BACKEND_SERVICE.getVadio(access_token,oepn_id,cursor,count)
         }
 
     suspend fun getClientToken(): ApiResult<ClientOauthInfo> =

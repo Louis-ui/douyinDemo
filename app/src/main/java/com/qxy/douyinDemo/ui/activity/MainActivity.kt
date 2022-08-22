@@ -2,12 +2,12 @@ package com.qxy.douyinDemo.ui.activity
 
 import android.util.Log
 import android.view.View
+import com.bytedance.sdk.open.douyin.api.DouYinOpenApi
 import com.qxy.douyinDemo.R
 import com.qxy.douyinDemo.base.BaseActivity
 import com.qxy.douyinDemo.databinding.ActivityMainBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MainViewModel
-
 class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBinding>() {
 
 //    private val mScope =
@@ -23,6 +23,12 @@ class MainActivity : BaseActivity<RepositoryImpl, MainViewModel, ActivityMainBin
 //                "data.external.billboard_food,data.external.billboard_travel," +
 //                "data.external.billboard_stars,data.external.billboard_sport,trial.whitelist" +
 //                "poi.cps.common,micapp.is_legal,incremental_authorization"
+
+    private val mScope =
+        "user_info,video.list,trial.whitelist"
+
+    var douYinOpenApi: DouYinOpenApi? = null
+
 
     override fun getContentViewId(): Int {
         return R.layout.activity_main

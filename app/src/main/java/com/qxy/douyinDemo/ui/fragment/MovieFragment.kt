@@ -1,3 +1,4 @@
+
 package com.qxy.douyinDemo.ui.fragment
 
 import android.os.Bundle
@@ -5,13 +6,13 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qxy.douyinDemo.R
+import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 import com.qxy.douyinDemo.base.BaseFragment
 import com.qxy.douyinDemo.bean.movieRankBean.MovieItem
 import com.qxy.douyinDemo.databinding.FragmentMovieBinding
 import com.qxy.douyinDemo.mvvm.repository.RepositoryImpl
 import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
 import com.qxy.douyinDemo.ui.listAdapter.MovieItemAdapter
-import com.qxy.douyinDemo.ui.listAdapter.MovieItemDecoration
 
 class MovieFragment(private val movieTypeCreate: Int) :
     BaseFragment<RepositoryImpl, MovieRankViewModel, FragmentMovieBinding>() {
@@ -33,7 +34,8 @@ class MovieFragment(private val movieTypeCreate: Int) :
                 MovieItemDecoration(
                     requireActivity(),
                     LinearLayoutManager.VERTICAL,
-                    R.layout.item_top_decor_movie
+                    R.layout.item_top_decor_movie,
+                    mViewModel!!
                 )
             )
             this.adapter = adapter
@@ -45,7 +47,7 @@ class MovieFragment(private val movieTypeCreate: Int) :
         }
     }
 
-    fun initData(adapter: MovieItemAdapter) {
+    fun initData(adapter : MovieItemAdapter) {
         when (movieTypeCreate) {
             MovieItem.type.CINEMA_MOVIE_TYPE -> {
                 mViewModel?.getMovieRankFromBackEnd()

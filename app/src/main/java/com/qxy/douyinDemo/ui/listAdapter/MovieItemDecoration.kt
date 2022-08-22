@@ -1,19 +1,26 @@
 package com.qxy.douyinDemo.ui.listAdapter
 
-import android.content.Context
+import android.app.Activity
 import android.graphics.Canvas
 import android.graphics.Rect
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.activity.ComponentActivity
+import androidx.core.view.children
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.qxy.douyinDemo.mvvm.viewModel.MovieRankViewModel
 
 class MovieItemDecoration(
-    private val mContext: Context,
+    private val mActivity: Activity,
     private val mOrientation: Int,
-    private val mLayout: Int) : ItemDecoration() {
+    private val mLayout: Int,
+    private val movieRankViewModel: MovieRankViewModel) : ItemDecoration() {
     private var header: View? = null
 
     override fun onDrawOver(canvas: Canvas, parent: RecyclerView, state: RecyclerView.State) {
@@ -33,11 +40,20 @@ class MovieItemDecoration(
             }
         }
         header!!.draw(canvas)
+        header?.let{ it ->
+            val group = it as ViewGroup
+            val group2 = group[0] as ViewGroup
+            val view = group2[0] as TextView
+            movieRankViewModel.movieRank.observe(mActivity as ComponentActivity){
+                view.text = it.active_time
+                view.invalidate()
+            }
+        }
     }
 
     private fun initHeader(parent: RecyclerView) {
         if (header == null) {
-            header = LayoutInflater.from(mContext).inflate(mLayout, parent, false)
+            header = LayoutInflater.from(mActivity).inflate(mLayout, parent, false)
             if (header?.layoutParams == null) {
                 header?.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
