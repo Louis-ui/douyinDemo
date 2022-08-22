@@ -8,7 +8,6 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import com.qxy.douyinDemo.app.AppSetting
 import com.qxy.douyinDemo.base.BaseViewModel
-import com.qxy.douyinDemo.bean.RankInfos
 import com.qxy.douyinDemo.bean.followBean.FansInfos
 import com.qxy.douyinDemo.bean.followBean.FollowInfos
 import com.qxy.douyinDemo.bean.followBean.FollowItem

@@ -74,6 +74,17 @@ class FollowFragment(private val followTypeCreate: Int) :
                     }
                     adapter.notifyDataSetChanged()
                 }
+//                for (i in 0..20) {
+//                    followItemList.add(
+//                        FollowItem(
+//                            "",
+//                            "username: $i", "country: $i",
+//                            "province: $i", "city: $i",
+//                            "gender",
+//                            FollowItem.type.FOLLOW_TYPE
+//                        )
+//                    )
+//                }
             }
 
             FollowItem.type.FANS_TYPE -> {
@@ -85,6 +96,17 @@ class FollowFragment(private val followTypeCreate: Int) :
                     }
                     adapter.notifyDataSetChanged()
                 }
+//                for (i in 0..20) {
+//                    followItemList.add(
+//                        FollowItem(
+//                            "",
+//                            "username: $i", "country: $i",
+//                            "province: $i", "city: $i",
+//                            "gender",
+//                            FollowItem.type.FANS_TYPE
+//                        )
+//                    )
+//                }
             }
         }
     }
