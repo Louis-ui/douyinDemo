@@ -29,7 +29,7 @@
                 android:id="@+id/movie_tab_title1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/movie_tab_title2"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/rank_role"
-                android:textSize="14sp"
+                android:textSize="16sp"
+                android:textColor="@color/red"
                 app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
